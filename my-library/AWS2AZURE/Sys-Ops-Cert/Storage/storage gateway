@@ -1,0 +1,22 @@
+- on-prem software appliance installed in your own data center
+
+- allows integration of your on-prem IT environment with AWS based storage
+
+- Types
+  - file gateway
+    - files are stored as objects in S3
+    - the files are accessed using a nfs or smb mount point, a filesystem mount backed by s3
+
+
+  - Volume gateway
+    stored volume
+      - store all data locally
+      - back up in s3
+      - uses iscsci protocol
+
+    cached volumes
+      - s3 is your primary storage
+      - frequently accessed data is cached locally, by your storage gateway using on-prem storage
+      
+
+  - Tape gateway

@@ -1,0 +1,120 @@
+MarketPlace
+
+- Cloud service where you can find, buy and rent software products
+
+- You can find VMs, network firewalls, and Clusters of VOLUMES
+
+COMPUTE
+
+AWS
+
+- EC2
+- BATCH
+- AUTO SCALING
+- VMware Cloud on AWS
+
+AZURE
+
+- Azure VMs
+- Azure Batch
+- Virtual Machine Scale Sets (VMSS)
+- AZURE VMware by cloudsimple
+
+AWS Containers         :          AZURE Containers
+
+- EC2 Container Service (ECS), Fargate   Azure Container Instances
+- EC2 Container Registry      Azure Container Registry
+- Elastic Container Service for Kubernetes (EKS)    Azure Kubernetes Service
+- App Mesh            :       Service Fabric Mesh
+
+AWS SERVERLESS                             AZURE Serverless
+
+- Lambda                                    Azure Functions
+- AWS Step functions, Simple workflow       Logic Apps
+  Service
+
+
+AWS Web Applications                     Azure Web Applications
+
+- Elastic beanstalk                       App Service
+- API Gateway                             API Management
+- Cloudfront                              Azure Content Delivery Network
+- Global Accelerator                       Azure Front Door
+
+
+
+AWS NETWORKING                            AZURE NETWORKING
+
+- Virtual Private Cloud (VPC)               Virtual Network
+- AWS VPN Gateway                           Azure VPN Gateway
+- Route 53                                  Azure DNS, Azure Traffic Manager
+- Direct Connect                            Express Route
+- Network Load Balancer                     Load Balancer
+- Application Load Balancer                 Application Gateway
+
+
+AWS DATABASES                                AZURE DATABASES
+
+- RDS                                        SQL, Database, Azure Database for Mysql
+                                              Azure database for postgresql
+
+- DynamoDB, SimpleDB                           Azure cosmos DB
+
+- Elasticache                                   Azure cache for redis
+
+- AWS database Migration service                 Azure DMS
+
+
+
+AWS STORAGE                                  AZURE STORAGE
+
+
+- S3                                          Azure Blob storage
+
+- EBS                                         Azure Managed Disks
+
+- Elastic File System                         Azure Files
+
+- S3 Infrequent Access IA                     Azure Storage, cool tier
+
+- S3 Glacier                                  Azure Storage, archive tier
+
+- AWS Backup                                  Azure Backup
+
+- Storage Gateway                             StorSimple
+
+- AWS Import/Export Disk                      Import/Export
+
+- Snowball, Snowball Edge, Snowmobile         Azure Data Box
+
+
+SECURITY OFFERINGS
+
+AWS AUTHENTICATION                               AZURE AUTHENTICATION
+
+- Identity and Access Management (IAM)            Azure Active Directory, Role Based
+                                                  Based Control
+
+- AWS Organizations                               Azure Subscripton Management, Azure
+                                                  Policy, Management Groups
+
+- Multi-Factor Authentication                     Multi-Factor AUTHENTICATION
+
+- AWS Directory Service                           Azure AD Domain Services (ADDS)
+
+- Cognito                                          Azure AD B2C
+
+
+
+AWS Encryption                                Azure Encryption
+
+- Serverside encryption with s3 KMS                     Transport Data Encryption
+
+Key Management Service, CloudHSM                        AZURE Key Vault
+
+
+
+AWS FIREWALL                                   AZURE FIREWALL
+
+- Web Application Firewall                       Application Gateway with Web
+                                                Application Firewall

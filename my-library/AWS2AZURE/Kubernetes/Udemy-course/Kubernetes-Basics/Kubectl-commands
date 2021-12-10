@@ -1,0 +1,12 @@
+- kubectl apply -f "deployment.yml"
+- kubectl get all
+- kubectl get pods
+- kubectl get nodes
+- kubectl get rs
+- kubectl get deployment
+- kubectl delete pod "name"
+- kubectl delete rs "name"
+- kubectl describe pods
+- kubectl describe rs
+- kubectl describe deployment
+- kubectl get rs --watch

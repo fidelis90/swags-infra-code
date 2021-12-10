@@ -1,0 +1,80 @@
+- There are two types of logging
+
+- The control plane logging
+  - k8 api
+  - audit
+  - authenticator
+  - controllermanager
+  - scheduler
+
+- The worker nodes logging
+  - system logs from kubelet, kubeproxy or dockerd
+  - application logs from application containers
+
+LOGGING CAVEAT
+
+- By default kubernetes stores all logs on the ec2 instance
+
+- if the ec2 instance is terminated, all logs are gone
+
+- there will be a logging system in the backend, where all logs from individual
+  worker nodes are sent to
+
+- Containerized applications writes to
+  - stdout and stderror
+
+- system logs go to
+  - systemd
+
+- containers redirects logs to /var/log/containers/*.log files
+
+- There will be a logging agent running as a daemon/pod, reading logs and shipping the
+ logs from /var/log to the logging backend
+   - Elasticsearch, splunk, cloudwatch Log backends
+
+- The logging agent is a pod running in your node running as a daemon
+
+- A logging agent is a fluentd, fluentbit
+   - fluentd has lots of plugins that can let you send logs to ES, splunk and cloudwatch
+
+   - For enterprise architecture, fluentd can stream data to Amazon kinesis data firehose
+     then allows streaming to S3, ES or Redshift, Splunk, Cloudwatch
+
+- EFK Stack
+   - Elasticsearch
+
+   - Fluentd
+    - has 100+ plugins
+    - as traffic goes up, fluentd can't keep up
+    - slow propagration of logs, it is based on ruby and memory intensive
+    - loss of logs
+    - fluentd buffer can be increasedto solve this, but not dynamic 
+
+  - Fluentbit
+    - This is lightweight and keeps up with higher traffic
+    - can ship logs to multiple logging backend
+
+   - Kibana
+
+   DEMO 1
+
+   - fluentd -> Cloudwatch -> ES -> Kibana
+   - fluentbit -> kinesis data firehose -> s3
+
+   - fluentd has a global manifest file
+   - when we kubectl apply -f fluentd.yml file
+   - the fluentd pod is created in the kube-system namespace
+   - we can do kubectl get pod --namespace=kube-system
+   - after deploying the fluentd pods inside each nodes in the cluster, a cloudwatch log group is created
+
+
+
+
+***** NAMESPACES *********
+
+[vagrant@docker fluentd-demo1]$ kubectl get ns
+NAME              STATUS   AGE
+default           Active   2d20h
+kube-node-lease   Active   2d20h
+kube-public       Active   2d20h
+kube-system       Active   2d20h

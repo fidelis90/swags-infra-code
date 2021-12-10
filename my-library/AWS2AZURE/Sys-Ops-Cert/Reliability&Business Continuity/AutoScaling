@@ -1,0 +1,55 @@
+- aws service that allows you to configure plans to automatically scale your resources
+
+- uses scaling plan
+
+- uses dynamic and predictive scaling to scale your resources
+
+SCALING PLANS
+
+- a set of directions for scaling your resources
+
+- scaling strategy
+  - dynamic scaling
+  - predictive scaling
+
+SERVICES WITH AUTO-SCALING GROUP CAPABILITIES
+
+- EC2: launching or terminating ec2 instances in a auto scaling group
+
+- DynamoDB: tables or secondary indexes to increase/decrease read and write capacity
+
+- ECS: adjusts ecs tasks and services in response to load variations
+
+- Aurora: adjusts the number of read replicas in the aurora DB cluster
+
+
+
+TROUBLESHOOTING AUTOSCALING
+
+- make sure auto scaling group exists
+- make sure the autoscaling service is enabled in th account
+- make sure AS config is working
+
+
+VERTICAL vs HORIZONTAL SCALING
+
+- Vertical SCALING
+  - Increasing machine/ system capacity
+  - disk, storage, cpu and memory
+
+- Horizontal scaling
+  - Adding instances or nodes
+  - adding loadbalancers
+  - Using auto scaling groups
+  - Making the application Multi AZ
+
+
+- VERTICAL && HORIZONTAL IN SERVICES
+
+- EC2
+  - Vertical: increase instance size
+  - Horizotal: Add instances, configure auto scaling
+
+- RDS
+  - Vertical: increase instance size
+  - Horizontal: Create read replicas 

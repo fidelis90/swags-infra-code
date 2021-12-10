@@ -1,0 +1,38 @@
+- read only copies of database
+
+- read replica operates as a DB instance that allows only read-only connections
+
+- applications can connect to a read replica just as they would connect to any DB instance
+
+- amazon rds replicates all source DB in the source db instance
+
+- use read replica for scaling beyond i/o capacity of a single db instance
+
+- use read replica when a scheduled maintenance period and source db instance is unavailable
+
+- for business reporting queries
+
+CREATING READ REPLICAS
+
+- when you create a new read replica
+
+- aws takes a snapshot of your source database
+
+- MULTI AZ enabled
+  - YES: the snapshot will be of secondary database and no downtime on your source db
+
+  - NO: the snapshot will be of your primary db, and can cause downtime for 1 minute
+
+-  when a new read replica is created, you can connect to it nusing a new endpoint dns address
+
+- you can have up to 5 read replicas of all open sorce rds db mysql postgresql mariadb and sql server
+
+- you can have read replicas in all regions for all engines
+
+- replication is asynchronous only not synchronous
+
+- you can have read replica from rr
+
+- db snapshots and automated backups can't be taken from rr
+
+- read replicas are for high availability while Multi AZ is for disaster recovery

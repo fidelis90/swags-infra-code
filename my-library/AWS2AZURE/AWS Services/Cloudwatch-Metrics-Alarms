@@ -1,0 +1,35 @@
+
+METRICS
+
+- Cloudwatch provides metrics for every services in AWS
+- Metrics is a variable to monitor( CPU utilization, Networking...)
+- Metrics have timestamps
+- You can create a dashboard for your metrics
+
+IMPORTANT METRICS
+
+- EC2 Instances: CPU Utilization, Status check, Network(but not RAM)
+  - Default Metrics every 5mins
+  - Option for detailed monitoring
+
+- EBS Volumes: Disk Read/Write
+
+- s3 Buckets: BucketSizebytes, Number of objects, AllRequests.
+
+- Billing: Total Estimated Chart
+
+- Service Limits: API Service usage
+
+- Custom Metrics: push your own metrics
+
+CLOUDWATCH ALARMS
+
+- Alarms used to trigger Notifications for any metric
+
+- Alarms Actions
+  - Auto scaling
+  - EC2 actions: stop start or terminate instance
+  - SNS Notifications
+  - Alarm status
+
+- Ansible role and playbook to configure cloudwatch metrics and alarms 

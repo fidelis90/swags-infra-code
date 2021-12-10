@@ -1,0 +1,9 @@
+- enables sql queries
+
+- serverless
+
+- works directly with data stored in s3
+
+- querying log files in s3, elb logs s3 access logs
+
+- Generate reports on data stored in s3

@@ -1,0 +1,10 @@
+- open aws acount
+- create IAM admin user
+- create terraform file to spin up t2.micro
+- run the terraform apply
+
+IN PRODUCTION
+
+terraform plan -out file
+terraform apply file
+do not run terraform destroy

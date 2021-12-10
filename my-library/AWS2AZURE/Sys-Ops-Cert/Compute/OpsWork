@@ -1,0 +1,6 @@
+- configuration management service allowing you to centrally manage the operating system
+  and / or application configurations on ec2 and on-prem systems
+
+- chef , puppet and opswork stacks
+
+- 

@@ -1,0 +1,30 @@
+- This can help creating customized configuration files
+
+- you can build templates based on variables from terraform resource atributes (e.g a public IP address)
+
+- The result is a string that can be used as a variable in terraform.
+   - The string contains a template
+   - a config file
+
+- in AWS you can pass commands that needs to be executed when the instance
+   starts for the first time
+
+- the template_file data source renders a template from a template string usually loaded from a
+  external file
+
+First create template file
+#!/bin/bash
+echo "database-ip = ${myip}" >> /etc/myapp.conf
+
+data "template_file" "init" {
+  template = file(${template/init.tpl})
+  vars = {
+    myip = aws_instance."web".private_ip
+  }
+}
+
+resource "aws_instance" "web" {
+   #...
+
+   user_data = data.template_file.init.rendered
+}

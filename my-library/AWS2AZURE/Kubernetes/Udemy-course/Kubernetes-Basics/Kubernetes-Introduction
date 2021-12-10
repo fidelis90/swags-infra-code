@@ -1,0 +1,35 @@
+*************** WHAT IS K8S **********************
+
+- This is the container orchestrator engine.
+
+- Running containers are hosted on the NODE (Ec2), Worker nodes host containers
+
+- The master node is the management node, that manages the k8s cluster between
+  multiple worker nodes.
+  - The master node is the control plane, monitors, plans and schedules nodes
+
+
+COMPONENTS OF THE CONTROL PLANE IN THE MASTER NODE
+
+- etcd: key value store for critical cluster info
+
+- Kube-scheduler: puts containers to proper nodes
+
+- Control manager
+
+- API server
+
+K8S CLUSTER STATE
+
+- Desired state must be equal to current state
+
+- Manifest file is the configuration file that tells the master node, the desired state of
+  the cluster.
+
+COMPONENTS OF THE WORKER NODE
+
+- container runtime engines (docker)
+
+- Kubelet: This is kubernetes agent running on each worker node, that communicates with the master node
+
+- Kubeproxy: network proxy allows communication to your container from inside and outside your cluster

@@ -1,0 +1,164 @@
+- Used for log analysis
+
+- involves a large amount of data
+
+- gives visibility into the performance and health of IT infra
+
+- Log monitoring: This is the process of collecting the information and alerting
+  when a potential issue is involved.
+
+- Log analysis: evaluating the collected data
+
+ARCHITECTURE
+
+- Data input
+
+- Parsing and indexing
+
+- Searching
+
+SPLUNK DEPLOYMENT MODELS
+
+- Departmental deployment
+  - 1 slunk enterprise that has the search head/indexer inbuilt
+  - up to 10 forwarders
+  - appropriate for up to 10 users
+
+- Small enterprise deployment
+  - a single search head (splunk enterprise)
+  - 2-3 indexers ( seperate splunk enterprise installations )
+  - up to 200 forwarders
+
+- Large enterprise deployments
+  - search head cluster
+  - lots of load balancers
+  - Thousands of forwarders
+
+
+HOW SPLUNK STORES DATA
+
+- When splunk processes raw data, it adds that data to indexes
+  - index is a repository for splunk data
+  - few built-in index is main, _internal etc
+
+- splunk transforms incoming data into events, and stores it in indexes
+
+- event is a single row of data
+
+- default fields to all events: timestamp, host, source and sourcetype
+
+SPLUNK APPS
+
+- Apps extends splunk's funtionality
+
+- is a collection of config files
+
+- you can get apps from splunkbase.com
+
+
+FORWARDING AND RECIEVING
+
+Types of forwarders
+
+- Universal forwarders
+  - Mostpopular
+  - installed on the local machine and can be configured using a deployment server 
+  - default ports: 8089 for management and 9997 for indexing
+
+- Forwarders will not work until you configure recieving
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WHY USE SPLUNK
+
+- Monitors aws infra
+
+- uploads and indexes log data from a local pc to splunk directly
+
+Where is the data stored
+
+- The process of transforming data is called indexing
+
+- The processed results are stored as events
+
+- index is the flat file repository for your data
+
+- Events are stored in the index as agroup of files that fall into 2 categories
+  - RAW data
+  - Index files
+
+- https://docs.splunk.com/Documentation/Splunk/8.2.2/SearchTutorial
+
+MY SPLUNK ENVIRONMENT
+
+- Host is Dev.holyswagger.com vagrant box
+
+- Splunk directory: /opt/splunk
+
+- Splunk service mgt : /opt/splunk/bin/
+  - ./splunk enable boot-start
+  - ./splunk start
+  - ./splunk stop
+
+
+- i have uploaded the tutorialdata.zip compressed data file
+
+- the file is has been indexed in the splunk platform and events are created
+
+
+SEARCH APP IN SPLUNK
+
+
+- app menu: switch btw splunk apps that you have installed
+
+- splunk bar: edit your splunk configuration
+
+- apps bar
+
+- search bar
+
+- Time ranger
+
+
+SEARCH QUERIES
+
+Retrieve events from the index
+
+- To retrieve events that mention errors or failures, you type the keywords in your search criteria.
+
+- f you use multiple keywords, you must specify Boolean operators such as AND, OR, and NOT.
+
+- for example buttercupgames error is same as buttercupgames AND error
+
+
+SEARCH RESULTS

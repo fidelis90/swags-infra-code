@@ -1,0 +1,27 @@
+Scenarios
+
+- K8S Version needs to be updated
+
+- Deploy security patches
+
+- EC2 AMI need to be updated
+  - you need to create AMIs
+
+- EKS Managed Nodegroups does the following automatically
+  - Create and manage ec2 workers for you
+  - amazon releases amis with bug fix, security patches for worker nodes
+    - Custom ami not supported
+  - automated deployment of updated amis with security patches
+    - no app downtime
+    - no overhead of user managed orchestration
+    - auto scaling group is used behind the scenes
+
+- eks managd nodegroup is an autoscaling group and associated ec2 instances that
+  are managed by AWS for an eks cluster. each nodegroup uses the amazon linux ami
+
+- amazon makes it easy to update and apply security patches to nodes and as well
+  as update them to the latest k8s version
+
+- To create multiple managed nodegroups and have more control over the configuration, a config file can be used.
+
+- We use managed nodegroup in working environment, it is free of charge 

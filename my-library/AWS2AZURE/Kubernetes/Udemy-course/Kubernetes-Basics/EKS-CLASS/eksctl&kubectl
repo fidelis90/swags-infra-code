@@ -1,0 +1,71 @@
+- this is a cli tool for creating clusters on EKS 
+  - eksctl create cluster: Creates cluster with one nodegroup containing 2 m5.large nodes
+
+  - eksctl create cluster --name "name" --version --node-type "t3.micro" --nodes 2
+
+  - eksctl create cluster --name "" --fargate
+
+- Easier than console
+
+- Abstracts lots of stuffs, VPC, Subnet, Security group etc using
+  Cloudformation
+
+
+AVAILABLE EKSCTL FEATURE
+
+- Create, get , lists and delete clusters
+- create drain and delete nodegroups
+- scale a node group
+- update a cluster
+- use custom amis
+- configure vpc networking
+- configure access to api endpoints
+- iam management and ass on poilicies
+- list cluster cloudformation stacks
+- install coredns
+- write kubeconfig file for a cluster
+
+
+- Since we can run kubernetes on different platforms, eksctl can only be used
+  on kubernetes running in eks
+
+******************* KUBECTL ********************
+
+- This is the cli tool used for running commands on k8s resources
+
+- communicates via cluster API Server
+
+- Works on any k8s cluster - eks, k8s on ec2, gke etc
+
+KUBECTL COMMAND SYNTAX
+
+kubectl [command]  [type]  [name]  [flags]
+
+Examples
+
+- kubectl get pod pod1
+- kubectl get pod
+- kubectl get pod pod2 -o yaml
+
+- Command
+  - create
+  - get
+  - describe
+  - apply and many more
+
+- type
+  - Any k8s resource type
+  - pods
+  - namespaces
+  - deployments
+  - replicaset
+
+- name
+  - optional
+  - name of the resource
+
+- flags
+  -
+
+
+- All available commands are in : kubernetes.io/docs/reference/kubectl

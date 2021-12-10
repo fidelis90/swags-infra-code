@@ -1,0 +1,50 @@
+************************  SNS ******************************
+
+- Simple notification service
+
+- We can integrate this to many aws services by creating sns topics
+
+- this will create an alarm when an event happens
+
+- event can be setting a threshold on a metric in cloudwatch and alarm triggers a sns topic
+
+- sns topic send notification to email or slack or microsoft teams
+
+
+*************** SLACK notification ***********************
+
+- Ec2 SERVER configured to send logs cloudwatch
+
+- Cloudwatch threshold on Metrics like CPUutilization
+
+- Threshold alarm triggers sns topic
+
+- sns topic sends notification to Lambda function
+
+- Lambda function sends to slack
+
+
+CONCEPT OF WEBHOOKS
+
+- We use this to trigger events
+
+- same way we configure a webhook on github by adding the token for jenkins
+  so jenkins can automatically build the codes in a repository whenever there
+  is a change pushed to the repository
+
+- same way we create a webhook on slack
+
+- Google create an app on slack; Activate incoming webhook
+
+Incoming webhooks are a simple wya to post messages from external sources (Lambda Function)
+into slack. They make use of a normal http request with a JSON payload.
+
+
+
+********************** WORKFLOW OF SENDING CLOUDWATCH ALARM TO SLACK **************
+
+- create sns topic
+
+- attach the sns topic to the alarm on cloudwatch
+
+- create a lambda function to convert and send sns message to slack by using webhook

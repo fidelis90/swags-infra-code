@@ -1,0 +1,11 @@
+- Pods are the smallest unit of the k8s model
+
+- Inside of a pod is where a container is running
+  - we can have multiple containers running in a pod
+  - But usually a pod always have just one container
+
+- A pod will have a unique IP
+
+- Kubernetes schedules pods to run on specific node
+
+- The container runtime on the node now runs the container inside of the pod

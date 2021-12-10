@@ -1,0 +1,12 @@
+- Create a role with s3 full acccess
+
+- attach the role to the ec2 instance
+
+- create a new bucket from the command line
+  - aws s3 mb s3://holyswagger-presigned-fidelis
+
+- upload a new file to the bucket
+
+- To give temporary access to objects in the s3 bucket we can create presigned url to access the object
+
+- aws s3 presign s3://holyswagger-presigned-fidelis/hello.txt --expires-in 300

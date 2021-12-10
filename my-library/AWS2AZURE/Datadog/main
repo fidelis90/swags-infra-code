@@ -1,0 +1,22 @@
+- This is an org primarily providing monitoring solutions
+
+- Infrastructure monitoring
+
+Architecture of Datadog
+
+- the datadog agent is installed on the hosts
+
+- the agent sends data to the cloud console
+
+- the dashboarding, querying and visualizations is done on the console
+
+- www.datadoghq.com
+
+Terminologies
+
+- agent
+- dogstatsd : daemon
+- statsd
+
+- service name is "datadog-agent"
+- config file: /etc/datadog-agent/*

@@ -1,0 +1,10 @@
+-> Virtual clusters within the main cluster 
+
+-> avoid creating namespaces starting with kube-, since it is reserved for kubernetes
+   system namespaces
+
+-> kubernetes starts with four namespaces
+   - default: The default namespace for objects with no other namespace
+   - kube-system: he namespace for objects created by the Kubernetes system
+   - kube-public:
+   - kube-node-lease

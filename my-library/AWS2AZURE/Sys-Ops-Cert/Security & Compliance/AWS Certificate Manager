@@ -1,0 +1,18 @@
+- TLS/SSL is used to easily identify secured websites and applications
+
+- secures network communication
+
+- manages sertificates
+
+- encrypts data in transit
+
+- Provision certificates
+
+- create your own certificate authority and issue certificates for your authentication
+
+- integrations
+  - elb
+  - cloudfront
+  - api gateways
+  - nitro enclaves
+  - cloudformation 

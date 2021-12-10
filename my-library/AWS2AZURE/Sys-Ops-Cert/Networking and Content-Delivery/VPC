@@ -1,0 +1,26 @@
+- Virtual data center in the cloud
+
+- Logical isolated part of the AWS cloud where you can define your own network
+
+- have complete control of the virtual network including your own IP address range
+  subnets, route tables ad network gateways
+
+- Fully customizable network
+
+- enable multi-layered security
+
+- Useful fr a three-tier application
+  - web tier: public-facing subnet
+  - application tier: private subnet, can only talk to web and db
+  - database: private subnet, can only talk to app tier
+
+- can setup hardware VPN connection btw your own data center and your vpc
+  This enables you to use cloud as your extension of your own data center
+
+- Traffic flow
+  - internet GW or Virtual private GW( VPN )
+  - Router ( Route Table )
+  - Network ACLS
+  - Security Groups
+  - Subnets
+ you cacmd

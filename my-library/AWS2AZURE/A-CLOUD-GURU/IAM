@@ -1,0 +1,41 @@
+- used to manage users and their level of access to the aws console
+
+- Centralised control of your aws account
+
+- shared access to aws account
+
+- granular permissions
+
+- Identity federation (Including Active Directory, Facebook, Linkedin)
+
+- MFA
+
+- Password rotation policy
+
+- PCI DSS compliance
+
+KEY TERMS
+
+- users
+- groups
+- policies: documents written in json used to give permissions to user/group/roles
+- roles
+
+IAM SUMMARY
+
+- IAM is universal, it does not apply to regions
+- new users have no permissions when first created
+- new users are assigned access key and secret keys
+- always set up mfa on the root account
+- you can create a custom password rotation policy
+
+******************************************************************************
+
+HOW TO CREATE A BILLING ALARM
+
+- Go to cloudwatch
+- Go to billings
+- set the threshold amount
+- create a new sns topic
+- set the subscription to your email address or use a lambda function to
+  send the alarm to slack or microsoft teams

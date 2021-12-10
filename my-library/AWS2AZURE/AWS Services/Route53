@@ -1,0 +1,9 @@
+*************** RESOLVER *********************
+
+-> When you create a VPC, R53 resolver automatically answers DNS queries for
+   local amazon VPC domain names for ec2 instances
+
+-> A Route 53 Resolver maps to a DNS server that runs on a reserved IP address for the VPC network range
+   plus 2. For example, the DNS Server on a 10.0.0.0/16 network is located at 10.0.0.2
+
+-> 

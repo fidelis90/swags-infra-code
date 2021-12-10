@@ -1,0 +1,28 @@
+- Record user activities in your aws account
+
+- enabled by default
+
+- records events such as creation, deletion, modifications of resources
+
+- logs API calls that are made in your aws account
+
+- ssh/rdp into ec2 instance, cloudtrail doesn't log that
+
+- by default cloudtrail keeps logs for 90days
+
+- to keep longer than 90days, we create a trail and by default the data is encrypted
+
+- by default cloudtrail logs multi-region
+
+- The logs are stored in the cloudtrail folder
+
+- can take up to 15mins for cloudtrail to see the api log
+
+WHAT GETS LOGGED
+
+- who
+- when
+- what and where
+- source IP
+- request parameters
+- Response

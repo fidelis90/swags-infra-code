@@ -1,0 +1,75 @@
+SOA-C01 SysOps Administrator Exam Guide
+
+- Monitoring & Reporting
+- Deployment & Provisioning
+- High availability
+- Storage & Data Management
+- Security & Compliance
+- Networking
+- Automation
+
+Prerequisites
+
+- Passed the AWS Certified solutions architect associate exam
+- or you have worked as a sysops admin with aws for atleast 1 year
+
+EXAM BLUEPRINT
+
+- Monitoring & Reporting:   22%
+- High Availability: 8%
+- Deployment & Provisioning:   14%
+- Storage & Data Management:   12%
+- Security & Compliance:    18%
+- Networking:   14%
+- Automation & Optimization:  12%
+
+- The aws certified sysops administrator - Associate exam.
+
+Types of questions
+- Multiple choice: Only one correct answer
+- Multiple - response: 2/more correct answers
+
+EXAM RESULTS
+- Pass is atleast 700
+- Highest score is 1000
+
+Monitoring & Reporting
+- Create and maintain metrics and alarms utilizing AWS monitoring services
+- performance and availability metrics
+- perform steps neccessary to remediate based on performance and availability metrics
+
+High Availability
+-  Implement scalability and elasticity based on use case
+- Recognize and different highly available and resilient environments on AWS
+
+Deployment and Provisioning
+- identify and execute steps required to provision cloud resources
+- Identify and remediate deployment issues
+
+Storage and Data Management
+- Create and manage data retention
+- Identify and implement data protection, encryption and capacity planning needs
+
+Security and Compliance
+- Implement and manage security policies on AWS
+- Implement access controls when using AWS
+- Differentiate between the roles and responsibility within the shared responsibility model
+
+Networking
+- Apply AWS Networking features
+- Implement connectivity services on AWS
+- Gather and interpret relevant information for network troubleshooting
+
+Automation and Optimization
+- Use AWS Services and features to manage and assess resource utilization
+- Employ cost-Optimization strategies for efficient resource utilization
+- Automate manual or repeatable process to minimize management overhead
+
+
+Exam
+- 130 minutes
+- 65 questions
+- 720 pass mark
+- $150usd
+- Multiple choice
+- valid for 2 years

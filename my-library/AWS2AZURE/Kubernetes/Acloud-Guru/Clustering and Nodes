@@ -1,0 +1,4 @@
+- a kubernetes cluster has one or more control servers that manage and control the
+  kubernetes API
+
+- The control servers are usually seperate from the worker nodes

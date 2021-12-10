@@ -1,0 +1,79 @@
+- Create a DevOps account in control tower and add it to the organization
+  and single sign on
+
+- Create an s3 bucket in the N.virginia Region
+
+- Create the following roles in the DevOps account
+  - Role1: Trusted identity with jenkins aws account with r/w permissions to
+           s3 bucket
+           Name: DevOps-Jenkins-crossaccount-role
+
+  - Role2: Trusted Identity with All the accounts with r/o permissions to the
+           s3 bucket
+           Name: DevOps-crossaccount-role
+
+- Create a bucket policy at the bucket level, to give all the accounts access to
+  the bucket.
+
+- Test access to the bucket from all the accounts.
+
+- Add the Role1 to the jenkins server's role as an inline policy
+
+********************************************************************
+
+- Using the ops machine in the bf-dev account, push the folder structured repo
+   - Name of repo: Ansible
+     Level 1
+     Folders: - playbooks -> agents_install.yml
+              - roles
+
+    Files: - ansible.cfg
+          - aws_ec2.yml #Inventory file
+          - Jenkinsfile
+
+**************************** PIPELINE ****************************
+
+S3 - JENKINS Setup
+
+- Manage jenkins -> manage plugins -> install Pipeline AWS Steps
+
+- Blue Ocean SetUp Summary
+  - One repo per project
+  - Git repos can be re-used in multiple pipelines
+  - Makes jenkins IasC
+
+JENKINS - PIPELINE
+
+- This is an automated expression of your process for getting software
+  from version control right through to your users and customers.
+
+- Creating a Jenkinsfile and committing it to source control provides a
+  number of immediate benefits.
+
+   - Automatically creates a pipeline build process for all branches and
+     pull requests.
+
+  - Code review/iteration on the pipeline (along with the remaining source code)
+
+  - Single source of truth for the pipeline, which can be viewed and edited
+    by multiple members of the project
+
+PIPELINE CONCEPTS
+
+- Pipeline code defines the entire building, testing and delivery process
+
+- Jenkinsfile can be declarative or scripted
+
+- Node: This is a machine which is part of the jenkins environment and is
+  capable of executing a Pipeline
+
+- Stage: defines a conceptually distinct subset of tasks performed through the
+  entire Pipeline ( e.g Build, test, and deploy stages ).
+
+- Step: A single task.
+
+Declarative Pipeline
+
+- The pipeline block defines all the work done throughout your entire Pipeline
+
+****************************************************************

@@ -1,0 +1,41 @@
+-> service used to manage, configure and provision your aws IAC
+
+-> you can write the template in yaml or json
+
+-> IAC
+
+-> Features of CF
+  - Parameters
+  - conditions
+  - resources
+  - Mappings
+  - Transform
+
+Troubleshooting CF
+
+- Where to find error messages
+  - Console: view Events section from the console
+
+- Common Errors
+  - IAM
+    - insufficient permissions
+  - default limit of ec2 instance /region is 20
+
+  - Failed Roll-back
+
+
+CLOUDFORMATION STACKSETS
+
+- Creates, deleted and update your CF stacks across multiple AWS accounts and regions
+  using a single operation
+
+- We use IAM Roles to give access to other accounts
+
+BEST PRACTICES WITH CF
+
+- IAM
+- Be aware of service limits
+- avoid manual updates
+- use cloudtrail for logging all api calls to
+- create a stack policy : json document that describes what update actions can be performed
+  on critical resources.

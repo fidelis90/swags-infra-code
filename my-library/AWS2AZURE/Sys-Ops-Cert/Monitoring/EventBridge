@@ -1,0 +1,10 @@
+- Eventbridge is all about event-driven architecture. an event is a change in state
+
+- Can be used to schedule events
+
+- can execute rules on a schedule
+
+- Eventbridge and cloudwatch events are the same
+
+- aws config sends an event to eventbridge, a rule is triggered and the sns topic attached
+  sends a notification the email SAME as cloudwatch events.

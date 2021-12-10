@@ -1,0 +1,27 @@
+- simple queue service
+
+- producers: messages are sent from the applications, microservices and other aws services
+
+- sqs queue: stored messages and wait for consumers to poll
+
+- consumers: messages are processed by applications, Lambda functions, ec2 instances and other servuces
+
+
+WHY DECOUPLE
+
+- Simplify updates
+
+- reduce complexity
+
+- increaase autonomous components
+
+- crate non-blocking operations
+
+TRANSACTION WITHOUT SQS
+
+
+client -> route53 -> cloudfront > load balancer > ec2 > rds(master db) > standbydb
+
+WITH SQS 
+
+loadbalancer > order queue (sqs) > ec2 > rds

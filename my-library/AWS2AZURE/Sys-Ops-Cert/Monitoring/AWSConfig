@@ -1,0 +1,70 @@
+- configuration monitoring, continuously monitors the configuration of your aws resources
+
+- Desired state
+
+- Notifications to SNS and eventbridge if a resource deviates from a desired state
+
+- automatic remediation
+
+- change history is stored in s3 bucket
+
+EXAMPLE SCENARIO
+
+- pressganey requires that ec2 instances in your vpc must not have public ip
+
+- aws config evaluates all instances and discovers that one instance is non-compliant
+
+- aws config can go ahead and stop the instance
+
+TRMINOLOGY
+
+- Rule
+- Conformance packs: set of rules managed as one
+
+
+*********** AWS CONFIG XX SYSTEMS MANAGER ****************
+
+SYS-MANAGER PRE DEFINED ACTIONS
+
+- EC2 Instances
+  AWS
+   - RESIZEINSTANCE
+   - RELEASE ELASTICIP
+   - STOPEC2
+   - TERMINATEEC2
+
+- EBS VOLUMES
+  AWS
+   - Attachebsvolume
+   - Configremediation- DeleteUnusedebsvolume
+   - ConfigRemediation-Enableebsencryptionbydefault
+   - ConfigRemediation-Modifyebsvolumetype
+
+- Security Groups
+  AWS
+   - ConfigRemediation-DeleteUnusedSecurityGroup
+   - DisableIncomingSSHOnport22
+   - DisablePublicAccessForSecurityGroup
+
+- Other Cool Things
+  AWS
+   - ConfigureCloudTrailLogging
+   - CreateRdsSnapshot
+   - PublishSnsNotification
+
+All these predefined actions in systems manager can be used by aws config
+
+
+- PressGaney has a requirement that all ec2 instance should only use Amazon linux 2 ami
+
+- We create a rule aws config to always detect any instance using another ami
+
+- We create a role: MyAutomationRole
+
+- We need to configure trust policy on the role btw systems manager and aws config, so they can assume
+  the role
+
+- We need to attach the policy AmazonSSMAutomationRole to the role
+
+- Add another policy "AllowPassRole" which allows the role to be passed to another
+  service 

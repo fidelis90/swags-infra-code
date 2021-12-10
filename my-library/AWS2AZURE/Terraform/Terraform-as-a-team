@@ -1,0 +1,20 @@
+-> Workflow for deploying Application code 
+ - Use version control
+    - all codes should be in version control
+    - have a READMe written for info about the application
+    - app config file
+
+
+ - Run the code locally
+ - Make code changes
+ - submit changes for review
+ - run automated tests
+ - merge and release
+ - deploy
+
+ Golden Rule of terraform
+
+ -> The master branch of the live repo muste be 1:1 representation of what's actually
+    deployed in production
+
+->

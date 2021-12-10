@@ -1,0 +1,35 @@
+*****************  CROSS ACCOUNT ACCESS USING IAM ROLE ******************
+# Check everything about IAM on work accounts 
+
+
+There are 2 AWS accounts  ( k12 & k13 )
+
+We want to allow a user (Gopal - Security Auditor) who has his IAM user in k12
+to be able to login to k13 and see all the resources available there.
+
+But, he should not be able to create/delete any resource.
+
+Also, we want to ensure that other users in k12 (Komal) should not be able to
+login to k13, using the above created IAM role.
+
+
+SOLUTION
+
+- create a role in ki3 for Gopal (ki2-user)
+
+- when you check the trusted relationship on the role; we see that there is a
+  relationship btw k12 and k13, so any user on the k12 can use the role
+
+- To limit the permission to only one user in k12 to use the role, we edit trust
+  relationship by putting the arn of the remote user as the principal user of
+  role.
+
+- On ki2 account with gopal logged in, check the permissions and roles attached
+  check the groups attached.
+
+- We have to give gopal user the role or permission to assume role ( sts )
+
+- on ki3 account, where we created the role. we copy the account ID and Role
+  Number
+
+- Paste the account ID and role on the switch role window of gopal account

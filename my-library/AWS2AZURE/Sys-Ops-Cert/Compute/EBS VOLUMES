@@ -1,0 +1,42 @@
+-> Elastic Block store
+
+-> storage volumes that can be attached to your ec2 instance
+
+-> You can create a file system, run a database, new operating system and so on
+
+-> Highly scalable: automatically replicated within a single AZ to protect against hardware failures
+
+-> Scalable
+
+TYPES OF EBS
+
+-> GP2: General purpose SSD(Solid State Drive)
+  - Good for boot volumes
+  - Good for development and test
+  - up to 16k iops per volume and 99.9% durability
+
+-> Provisioned IOPS io1
+  - Up TO 64000 IOPS 50 IOPS per Gib
+  - designed for IOPS intensive apps like databases
+
+-> Provisioned io2
+  - Latest generation
+  - cost same
+  - Higher durability and more IOPS
+  - 500 IOPS per Gib
+
+-> Throughput Optimized HDD(Hard Disk Drive)
+  - low cost HDD VOLUME
+  - Baseline throughput 40MB per TB
+  - Ability to burst up to 250 MB per TB
+  - For frequently accessed, throughput-intensive workloads
+  - Big Data, data warehouses, ETL and log processing
+  - Cannot be a boot volume
+
+-> Cold HDD (SC1)
+  - Lowest cost option 
+  - performance not a factor
+
+EXAM TIPS
+-> Highly available
+-> know the difference in types

@@ -1,0 +1,24 @@
+- feature in systems manager
+
+- This is a secure storage for parameters and secrets
+
+- optional encryption
+
+- control user and resource access using  IAM
+
+- referrable through multiple aws accounts
+
+Parameter Vs Secrets Manger
+
+- Similarities
+  - stores values up to 4096 characters
+  - values encrypted with kms
+  - referrable in cloudformation
+
+- Parameter
+  - No additional cost ( free )
+
+- Secrets manager
+  - Built in passowrd generator
+  - great for cross account access
+  - automated secret rotation

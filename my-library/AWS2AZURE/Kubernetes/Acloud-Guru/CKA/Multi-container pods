@@ -1,0 +1,16 @@
+- a k8s pod with more than one container
+
+- containers in a pod share resources
+
+- shared resources
+  - network: containers in a pod share same network namespace even if the port isn't
+    open to the cluster
+
+  - Storage: containers can use volumes to share data in a pod
+
+REASONS FOR HAVING MULTI CONTAINER POD ENVIRONMENT
+
+- You have an application that is hard-coded to write log output to a file on disk
+
+
+INIT CONTAINERS 

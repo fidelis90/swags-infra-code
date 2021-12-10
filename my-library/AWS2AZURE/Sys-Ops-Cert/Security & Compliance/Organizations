@@ -1,0 +1,104 @@
+- manage multiple aws accounts in one place
+
+- centrally manage policies across multiple aws accouns
+
+- controls access to aws services
+
+- automate account creation and management
+
+- consolidate billing across aws accounts: single payment method
+
+root -> organizational units -> aws accounts
+
+- service control policy can be attached to users, OU or single aws account
+
+- You can integrate organiations with sso to enable single sign-on to multiple acconts
+  using active directory, and customize permissions based on job roles
+
+- accounts within organizations can share resources such as aws transit gateways,
+  vpc subnets, route 53 resolver rules, and many more using Resource Access Manager
+
+- integrates with guard duty and resource access manager, firewall manager sso and securityhub
+
+
+SERVICE CONTROL POLICIES
+
+- Policies created within organizations to control access to accounts and services
+
+- By default scp uses a block list strategy, however scps can be created for allow list statements
+
+Allow list
+This will allow access to all resources under ecs and cloudwatch service and block other services
+{
+  "version":
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecs:*",
+        "cloudwatch:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+Block List
+This will allow access to all services except dynamodb
+
+{
+  "version":
+  "Statement": [
+    {
+      "Sid": "AllowAllActions",
+      "Effect": "Allow",
+      "Action": "*",
+      "Resource": "*"
+    },
+    {
+    "Sid": "DenyDynamoDB",
+    "Effect": "Deny",
+    "Action": "dynamodb:*",
+    "Resource": "*"
+    }
+  ]
+}
+
+
+SCP INHERITANCE
+
+- imagine a root account has a scp attached ( allows permissions a b and c )
+
+- the root contains an OU to which is attacheed a second scp ( allows permissions c d and e )
+
+- because the scp attached to the root doesn't allow d and e no OU or accounts in the org can use them
+
+- because the Ou's scp doesn't allow a and b, the ou and every child ou and account attached
+ will not use a and b
+
+SECURING MULTIPLE ACCOUNTS USING CONTROL TOWER AND organizations
+
+- Control tower is a service used to create, configure and manage multiple aws accounts securely
+  through automating ongoing policy management and guardrails
+
+- uses aws organiations to craete the acounts and apply guardrails and utilize consolidated billings
+
+- multi account framework
+
+- Control Tower Terminologies
+   - Landing zones: a framework for creating a multi-account architecture within AWS to configure
+      default accounts, account structure and network and security layouts
+
+    - Account factory: is a account template which helps provision new accounts with pre-approved
+      account configurations
+
+    - Guardrails: rules which provide governance within aws environment. guardrails
+      are applied to OU and the accounts within them.
+
+       - Preventative guardrails: prvents policy violations through enforcement
+         via Cloudformation and service control policies
+
+       - Detective guardrails: Detect policy violations and alerts in the dashboard
+         through AWS config rules.
+
+  

@@ -1,0 +1,11 @@
+- Cloudtrail: Monitor user activity and API usage
+
+- Record: Capture cloudtrail events occurring within AWS services
+
+- Store: View cloudtrail events through AWS console, s3, cloudwatch logs
+
+- Act: Configure cloudwatch alarms and events to occur when events are detected
+
+- Review: in Athena or cloudtrail console
+
+- IAM Access analyzer: Helps identify resources shared with an external entity

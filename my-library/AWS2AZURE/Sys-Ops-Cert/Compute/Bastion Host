@@ -1,0 +1,11 @@
+-> This is a public facing instance which enables you to ssh or rdp to your
+   private instances from an untrusted network
+
+-> a bastion host has a public ip address and is connected to the internet / untrusted network
+
+-> it is security hardened with any uneccessary services removed to reduce the attack surface
+
+-> security group needs to be configured on the host in the private subnet to allow ssh access
+   from the bastion host
+
+-> 

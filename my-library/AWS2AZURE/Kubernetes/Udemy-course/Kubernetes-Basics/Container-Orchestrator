@@ -1,0 +1,25 @@
+************** WHAT IS CONTAINER ORCHESTRATOR *******************
+
+- You have created two images of two applications AppA and AppB
+
+- The images are in DockerHUB or ECS
+
+- To run the images, we need a host like Ec2
+
+- For high availabilty of our application, we need to have a mechanism to scale
+  the hosts and have the containers running automatically at scale up and have them
+  destroyed at scale down.
+
+- since we have multiple hosts, we will need a loadbalancer to route traffic to hosts
+
+- Monitoring and logging of containers and hosts
+
+- Service Discovery and more
+
+- In order to achieve all these container management related tasks, we need an orchestrator engine
+  -> Docker swarm
+  -> kubernetes
+     - Amazon EKS
+  -> Apache mesos
+  -> AWS ECS 
+  -> AWS Fargate

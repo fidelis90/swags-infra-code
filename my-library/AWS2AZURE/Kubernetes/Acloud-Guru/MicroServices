@@ -1,0 +1,22 @@
+-> One of the best ways to demonstrate the value of kubernetes
+  is in managing microservice applications
+
+-> Microservices are small, independent services that work together to form
+   a whole application
+
+-> Many apps are designed in a monolithic architecture, meaning the entire parts of the apps are combined in one
+   executable
+
+ADVANTAGES OF USING MICROSERVICES ARCHITECTURE
+
+-> Scalability: Individual microservice are independently scalable
+   - if your search service is undergoing a large amount of load, we can scale up the pods
+     hosting the search mciroservice to meet the requirements.
+
+-> Cleaner code: When services are relatively independent, it is easier to make a change
+  in one area of the app without breaking things in other areas
+
+-> Reliability: Problems in one area of the app doesn't affect the other areas
+
+-> Variety of tools: Different parts of the app can be built using different tools
+   languages and frameworks. The right tool can be used for every job

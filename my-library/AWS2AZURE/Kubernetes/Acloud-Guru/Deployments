@@ -1,0 +1,16 @@
+-> Pods are a great way to organize and manage containers
+
+-> we use deployments to spin up multiple pods using replica sets
+
+-> you specify a desired state for a set of pods. THE CLUSTER WILL THEN WORK TO MAINTAIN
+   DESIRED STATE
+
+->  deployments are used for scaling
+
+-> used for rolling updates
+   - when we want to deploy new version of our application running as containers
+    in the pods, we can use deployments to roll out the new version without having to destroy
+    and create new pods on the nodes
+
+-> Self -healing: If any pods is destroyed or deleted, deployment creates replaces the pods
+   with a new one 

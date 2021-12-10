@@ -1,0 +1,75 @@
+******* SIMPLE KUBERNETES CLUSTER *********
+
+- This is a 3-node cluster
+
+- One master node
+  - docker
+    - container runtime that runs the containers
+    - first step in building our cluster, is to install docker
+  - kubeadm
+  - kubelet
+  - kubectl
+  - controlplane
+
+- Two worker Nodes
+  - Docker
+  - kubelet
+  - kubeadm
+  - kubectl
+
+KUBEADM
+- This is a tool that automates a large portion of the process of setting up a cluster
+
+- it will make our job easier
+
+KUBELET
+- The essential component of kubernetes that handles running containers on a node
+- every server that will be running container needs kubelet
+
+KUBECTL
+- Command-line tool for interacting with the cluster once it is up
+- we will use it to manage the cluster
+
+==> After the kubernetes components are installed on all nodes
+
+==> Bootstrap the cluster
+
+- We use kubeadm to build the cluster
+
+- initialize the cluster on the master server
+
+- When you run kubectl get nodes, the nodes will be in Not Ready status until
+  we set up networking on the cluster
+
+******** CONFIGURE NETWORKING USING FLANNEL ***************
+
+CONTAINER NETWORKING (CNI)
+
+- Networking between containers, hosts and public network
+
+- Flannel is the most popular cni plugin
+
+- Flannel configures a layer3 IP Overlay network
+
+- A large internal network is created within the cluster across all nodes
+
+- each node is given a subnet to allocate IPs to the pods
+
+- as pods are deployed, the docker bridge interface on each node allocates an address
+  fr each new container,
+
+- Pods within the same node, can communicate using the docker bridge
+
+- While pods on different nodes will have their traffic encapsulated in UDP packets
+  by flanneld for routing to the appropriate destination
+
+- stores the network configuration in etcd 
+
+CONFIGURE NETWORKING
+
+- For networking to work you need to configure iptables
+
+- Kubernetes supports a variety of networking solution to provide networking
+  between containers
+
+- we will be using Flannel

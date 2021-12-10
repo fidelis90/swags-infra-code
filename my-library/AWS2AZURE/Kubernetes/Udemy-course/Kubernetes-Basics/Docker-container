@@ -1,0 +1,71 @@
+WHAT IS A DOCKER CONTAINER
+
+Scenario
+
+- a developer working on his machine which is in the dev environment
+
+- the python runtime is python3.8 version
+
+- the dns config is working fine
+
+- the developer pushes the code to the test environment where the servers are
+  running python3.6, therefore some dependencies are not working.
+
+- then the code is moved to production, python2.7 and the code crashed
+
+
+There are two types of developers now..
+
+- The code works on my machine and the dev environment, i don't care about any other nvironment
+
+- It works on my machine, then i will ship the machine and that's how docker was born.
+
+
+- A container is am atomic, self contained package of software that includes
+  everything it needs to run(code, runtime, libraries, packages, etc)
+
+DOCKER IMAGE vs DOCKER CONTAINER
+
+- Docker image or Container image is the package of everything that is needed
+  to run(code,;libraries,runtime, dependencies etc)
+
+- when you docker run on the docker/container image then you have a running application
+  inside the docker container
+
+
+************* SOFTWARE DEVELOPMENT WORKFLOW ***************************
+
+My-App -> Dockerfile -> Docker-Image -> Repository(Dockerhub/ECR) -> Container(K8S Cluster, EKS, K8S on ec2)
+
+VIrtual Machine vs Containers
+
+A VM needs a guest OS to run, so multiple VMs you need to install guest OS on
+individual VMs which takes a whole lot of spaces and it takes time to boot
+
+Container doesn't need guest OS to be installed before they can run. which makes it
+easy to boot and scale
+
+
+
+Back to developer that had a failed application in the prod environment.
+- after writing and running the app on his machine with the following runtime
+  - python 3.8
+
+- next is to write a Dockerfile to package the app and the environment into a docker image
+
+- Then this image can be deployed and run on any platform(k8s cluster amazon eks)
+
+- The container can run seamlessly in Dev, Test and Prod environment.
+
+
+BENEFITS OF RUNNING DOCKER CONTAINERS
+
+- Better resource utilizations
+
+- Runs reliably in any environment (linux, windows)
+
+- App isolation
+
+- Containers are lightweight
+
+- Container orchestrastion is solved

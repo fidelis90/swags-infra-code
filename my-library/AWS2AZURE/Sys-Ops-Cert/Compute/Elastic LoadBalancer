@@ -1,0 +1,55 @@
+-> a loadbalancer distributes network traffic across a group of servers
+
+-> Types
+  - Application LB
+    - http and https traffic
+    - operates at layer 7
+    - routes to a specifc webserver based on the type of request
+
+  - network LB
+    - tcp and high performance
+    - operates at layer 4
+    - the most expensive
+
+  - Classic LB
+    - http/https and tcp  #Legacy
+    - supports x-forwarded header: allows you to identify the originating IP of a client
+
+-> Gateway loadbalancer
+  - Allows you to loadbalancer workloads for third party virtual appliances running in
+    AWS, Such as
+    - virtual appliances bought in Marketplace
+    - virtual firewalls bought from companies like fortinet, palo alto, juniper
+      cisco
+
+************* ELB ERROR MESSAGES **************
+
+-> Server side or Client side
+  - server side errors:
+   502: bad gateway, target is unreachable
+   503: service unavailable: no registered targets
+   504: gateway timeout
+
+-> Client side
+  - 400 bad requests
+  - 408 request timeout
+  - 404
+
+CLOUDWATCH METRICS FOR ELB
+
+We generate traffic then cloudwatch can gather the metrics
+
+-> HealthyHostCount
+-> UnhealthyHostCount
+-> RequestCount
+-> TargetResponseTime
+-> HTTP status codes
+
+
+ELB ACCESS LOGS
+
+-> capture information relating to the incoming requests to your ELB
+
+-> It saves the access logs to a backend s3 bucket
+
+-> encrypted in the bucket (at rest)

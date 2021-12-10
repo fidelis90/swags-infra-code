@@ -1,0 +1,128 @@
+********************** AWS ORGANIZATIONS **************************
+# Check Everything about Organizations in Binary and Doctors.com
+
+
+- It helps to consolidate multiple AWS accounts into an organization that
+  you can create and centrally manage
+
+- As an administrator of an organization, you can create accounts in your
+  organization and invite existing accounts to join the organization.
+
+- IAM service provides management on only your local aws account but aws organization
+  can allow you apply policies to all aws accounts in the organization.
+
+
+
+WHAT DO ENTERPRISE CUSTOMERS NEED TO SCALE THEIR AWS ACCOUNTS EFFECTIVELY
+
+- Centrally manage policies across accounts
+
+- Easily create new accounts at scale ( for isolation and grouping )
+
+- View charges and usage across accounts
+
+- Automate account creation
+
+- Control AWS service use across accounts
+
+- Consolidate billing and usage reporting
+
+
+
+HOW IT WORKS
+
+- You create the organization from one aws account i.e Master Account
+
+- You can join member accounts into the organization i.e member accounts
+
+- grouping the accounts in the organization is called the Organizational units
+
+- The policies you apply to this organizational units and individual member accounts
+  are Security Control Policies
+
+- one OU can be a member of another OU but can't be a member of multiple OUs
+
+- one AWS account cannot be a member of multiple OUs
+
+- The number of levels to use is 5 hierrachy
+
+- The scp can be applied at any heirrachy
+
+
+MORE BENEFITS OF AWS ORGANIZATIONS
+
+- Automate account creation and management, and provision resources with AWS
+  CloudFormation Stacksets.
+
+- Maintain a secure environment with policies and management of AWS security \
+  services.
+
+- Configure AWS services across multiple accounts
+
+
+HOW DO I GET STARTED
+
+
+- First decide which of your AWS accounts will become the management account
+
+- Then create and add member accounts to the organization.
+
+- Model your organizational hierrachy by grouping the member accounts in OUs.
+
+- Create policies ( such as scp or backup policies ) for OUs, accounts, or the
+  organization at the root level.
+
+Note: You can initiate the creation of a new organization only from an AWS
+account that is not part of another AWS organization.
+
+
+AWS CONTROL TOWER
+
+AWS CONTROL TOWER
+
+AWS control tower, built on AWS services such as AWS Organizations, offers the
+easiest way to set up and govern a new, secure, multi-account AWS environment.
+
+
+WHAT IS A POLICY
+
+A policy is a document with one or more statements that define the controls that
+you want to apply to a group of AWS accounts. AWS Organizations supports the
+following policies.
+
+- Backup policies- requires AWS backups on a specified cadence
+
+- Tag policies- defines tag keys and allowed values
+
+- AI services opt-out policies- controls how AI services store or use content
+
+- Service Control Policies (SCPs)- An SCP defines the AWS service actions, such
+  as Amazon EC2 RunInstances, that are available
+
+Best Practices
+
+- Monitor activity in the master account using AWS cloudtrail
+
+- Make sure cloudtrail logs on member accounts send their logs to s3 bucket
+  on the Master account.
+
+- Do not manage resources in the master account; only use master account to store
+  cloudtrail logs from member accounts
+
+- Manage your organization using the principle of "least privilege"
+
+- Use OUs to assign controls.
+
+- Test controls on a single AWS account first
+
+
+SERVICE CONTROL POLICIES
+
+- we use this policies to manage our organization
+
+- if we want similar level of permissions across multiple account
+
+- at any level of OU that the SCP is applied it takes effect from the start levels
+  to the lowest level.
+
+-

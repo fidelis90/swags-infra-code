@@ -1,0 +1,23 @@
+- controls, standards and frameworks which helps customers ensure security and
+  compliance requirements in AWS
+
+- Shared responsibility model
+
+- Compliance frameorks
+  - ISO 27001
+  - HIPAA security of healthcre information
+  - PAYMENT CARD INDUSTRY DATA SECURITY STANDARD
+  - FEDRAMP == AWS GOV CLOUD
+
+- requirements of PCI
+  - Firewall
+  - Password protection
+  - encryption ( rest and flight )
+  - antivirus software
+  - develop and maintain secure systems and aplications
+  - Restrict access to cardholder data by business need to know n
+  - assign a unique ID to each person with computer access
+  - restrct physical access to data
+  - track and monitor all access to network resources and cardholder data
+  - regularly test security systems and processes
+  - maintain a policy that addresses information security for all personnels 

@@ -1,0 +1,56 @@
+-> You can build your own custom AMI and bundle your software with the image
+   - Packer is a great tool for this
+
+-> Boot standardized AMIs, and then install software on it you need
+   - Using file uploads
+   - Using remote exec
+   - Using automation tools like Ansible, chef, puppet
+
+*************** FILE UPLOADS ***************************
+
+-> We use the provisioner module for file uploads
+   provisioner "" {
+     source =
+     destination =
+   }
+
+-> This is an easy way to upload a file or a script
+
+-> This can be used in conjuction with remote exec to execute the script
+
+-> The provisioner may use ssh
+
+-> We use connection to override the default ssh
+   provisioner "file" {
+      source =
+      destination =
+      connection {
+        user = "$(var.instance_username)"
+        password = "$(var.instance_password)"
+      }
+   }
+
+-> Typically in aws we use ssh keypairs to login to instances
+
+-> To use ssh-keypairs
+ resource "aws_key_pair" {
+   key_name =
+   public_key =
+ }
+
+-> you use remote-exec to e xecute a script on an instance
+   provisioner "remote-exec" {
+      inline = [
+        "chmod +x /opt/script.sh"
+        "/opt/script.sh arguments"
+      ]
+   }
+
+-> Ec2 stores the public key on the instance  and you store the private key
+
+
+
+
+
+
+# Check VS-CODE for live

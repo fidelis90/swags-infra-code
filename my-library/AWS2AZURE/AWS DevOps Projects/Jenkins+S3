@@ -1,0 +1,32 @@
+JENKINS CROSS-ACCOUNT DEPLOYMENT
+
+- On the target accounts, create a role with a trusted relationship with the
+  account where jenkins is hosted, with least permissions
+
+- on account where jenkins is, modify the role attached to the jenkins server,
+  by adding an inline policy, using STS, write -> AssumeRole, then add the ARN
+  of the target account.
+
+- To test connection of jenkins;
+  - Install plugin aws steps.
+  -
+
+- Install the s3 publisher plugin
+- manage jenkins > configure system
+- Add s3 profile
+- use IAM Role
+
+
+*********************************************************
+The AIM here is to create a webhook to always trigger a jenkins job anytime a
+change is commit is made to the master branch in github
+
+- Install github integration plugin in jenkins
+- Install AWS steps -> S3 publisher
+- Configure system -> Add s3 profile -> tick the IAM Role
+- create the script-to-bucket-job | freestyle | git project | add repo |
+- Build trigger -> GITSCM
+- Post build -> Publish s3 artifacts to bucket
+- validate
+- create a webhook on github
+  - payload url: jenkins-server:8080/github-webhook/

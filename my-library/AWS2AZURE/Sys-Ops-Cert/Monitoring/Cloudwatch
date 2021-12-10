@@ -1,0 +1,110 @@
+- This is a monitoring service to monitor the health and performance of your AWS
+  resources, as well as the applications you run on AWS, and in your own data center.
+
+- What can cloudwatch monitor
+  - Compute
+    - ec2 instances
+    - asg
+    - elb
+    - route 53 health checks
+    - lambda
+
+  - Storage and content delivery
+    - ebs volumes
+    - storage gateways
+    - cloudfront
+
+  - Databases and Analytics
+    - DynamoDB tables
+    - ElastiCache nodes
+    - RDS instances
+    - Redshift
+    - Elastic Map Reduce
+
+  - Other
+    - sns topics
+    - sqs queues
+    - API gateway
+    - Estimated AWS charges
+
+- Cloudwatch agent
+
+- Default ec2 host metrics [CNDS]
+  - CPUUtilization
+  - Network
+  - DiskUtil
+  - Status check
+
+- You can retrieve data from terminated instance
+
+- Operating system level Metrics
+  - by default ec2 doesn't send any os metrics to cloudwatch
+  - You need to install cloudwatch agent on the ec2 instance to send os level metrics
+    to cloudwatch
+  - Memory usage, processes, amount of free disk space, CPU idle time
+
+- By default ec2 send metrics to cloudwatch every 5mins
+
+
+CREATING CLOUDWATCH DASHBOARDS
+
+- launch ec2 instance
+- create a custom dashboard
+- add some widgets
+- create dashboards to view metrics that are important to you
+
+
+CLOUDWATCH LOGS
+
+- Centralized logs
+  - app logs
+  - system logs
+  - aws services
+
+- View, search and filter
+
+- Notifications
+
+- Log events: event message and time stamp
+
+- Log stream: sequence of log events, e.g apache logs from a specific host
+
+- Log group: group log streams together, no limit to th number of log streams in a log group
+
+
+CLOUDWATCH METRIC FILTER
+
+- Create a lambda function: This will automatically create a log group in cloudwatch
+  so lambda can send the logs to cloudwatch
+
+- Test: test the lamda function and may send log events to the log group
+
+- Create a metric filter; to alert if any error appear in the log
+
+- we use metric filter at log group level
+
+- we use it to recieve alerts for specific errors
+
+CLOUDWATCH LOG INSIGHTS
+
+- Bespoke query language
+
+- Query and filter the logs directly
+
+- Generate visualizations, e.g bar graph, line graph or pie chart
+
+- create a basic lambda function
+
+- Test the function; generate logs events to the log group
+
+NOTIFICATIONS FROM CLOUDWATCH
+
+- alarms: this monitor your metrics in cloudwatch
+
+- cloudwatch integrates with SNS to send email notifications.
+
+DEMO: CREATE CLOUDWATCH ALARMS
+
+- Configure CW alarm to trigger if cpu exceeds 90% for 1 min
+- integrate with sns topic to send email
+- run the stress command for cpu load on ec2 instance

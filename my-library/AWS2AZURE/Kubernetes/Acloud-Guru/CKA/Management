@@ -1,0 +1,84 @@
+****** HIGH AVAILABILITY IN KUBERNETES ******
+
+-> K8s facilitates high availability applications
+
+-> you can design the cluster to be highly available
+  - multiple control plane nodes
+  - when using multiple control plane nodes, you will likely need to communicate
+    with the k8s api through a loadbalancer
+
+    kubelet(worker nodes) -> loadbalancer -> multiple controle planes
+
+
+STACKED ETCD
+
+-> kubeadm uses stacked etcd
+-> each control plane nodes have etcd running
+
+EXTERNAL ETCD
+
+-> HOSTING YOUR ETCD SERVERS OUTSIDE THE CLUSTER
+
+
+************** K8S MANAGEMENT TOOLS *****************
+
+-> KUBECTL
+-> kubeadm
+-> minikube
+-> Helm
+-> Kompose : Docker compose file -> Kubernetes objects
+-> Kustomize
+
+
+************** DRAINING ******************
+
+-> When performing maintenance, we may sometimes need to remove a k8s node from service.
+
+-> We drain the node, containers running will be terminated and moved to another
+   node.
+
+-> kubectl drain node
+
+-> ignoring daemonsets: when draining a node, you may need to ignore daemonsets
+   (pods that are tied to each node).
+   - kubectl drain node "name" --ignore-daemonsets
+
+-> kubectl uncordon "node-name" is done after maintenance is done on the node
+
+-> when you try to drain a node hosting a pod created outside of a deployment,
+   we need to always use the --ignore-daemonsets flag cos kubernetes can't move
+   the pod easily with daemonsets
+
+-> a pod created outside a deployment will be evicted when you drain and will be lost
+
+-> Moral lesson: always use a deployment in production, so k8s can manage the pods
+  during maintenance of the nodes
+
+-> FYI: When we drain a node, all the pods won't be automatically returned back to the nodes
+  the node will be ready for new deployments and schedule
+
+UPGRADING KUBERNETES USING KUBEADM
+
+CONTROL PLANE NODE
+
+-> Upgrade kubeadm on the control plane node
+
+-> drain the control plane node
+
+-> plan the upgrade (kubeadm upgrade plan)
+
+-> Apply the upgrade (kubeadm upgrade apply)
+
+-> Upgrade kubelet and kubectl
+
+-> Uncordon the control plane
+
+WORKER NODE UPGRADE
+
+-> Drain the node
+
+-> Upgrade kubeadm
+
+-> Upgrade kubelet
+
+-> Upgrade kubelet  and kubectl

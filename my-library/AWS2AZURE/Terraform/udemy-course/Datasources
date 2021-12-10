@@ -1,0 +1,16 @@
+- Terraform providers like aws provides datasources
+
+- datasources provides you with dynamic information
+
+- For example there are datasources that
+  - list AMIs
+  - list availability zones
+  - all ip addresses in use by AWS
+
+- Imagine we have a task to create a securitygroup to allow traffic from
+  all ips in a particular availability zone.
+    - we can use datasources in terraform to get the ips in that region
+    - then we use the data in our aws_security_group resource. 
+    -
+
+- lab in demo-5

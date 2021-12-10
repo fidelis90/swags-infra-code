@@ -1,0 +1,35 @@
+-> when you running apps in k8s, you may want to pass dynamic values to your apps
+   at runtime to control how they behave.
+
+-> ConfigMaps: store data in the form of a key-value map. configMap data can be
+   passed to your container apps.
+
+-> Secrets: designed to keep sensitive data like password and api keys
+   the data in secrets are passed to our containers using
+   - environment variables.
+
+-> Configuration Volume: configuration data from configmaps and secrets can also
+   be passed to containers in the form of mounted volumes. This will cause the
+   configuration data to appear in files available to the container file system.
+
+-> Each top-level key in the configuration data will appear as a file containing
+   all keys below that top-level key.
+
+
+MANAGING CONTAINER RESOURCES
+
+- Resource Requests
+  - allow you to define an amount of resources(such as CPU, MEMORY) you expect a container
+    to use.
+
+  - The kubernetes scheduler will use resource requests to avoid scheduling pods
+    on nodes that do not not have enough available resources
+    - cpu is measured in units (1000units = 1cpu)
+    - memory is measured in bytes
+
+
+MONITORING CONTAINER HEALTH
+
+-> Liveness probes
+  - automatic detection of container health status
+  - customize and automate the process detection

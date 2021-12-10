@@ -1,0 +1,13 @@
+-> This is terraform's way of bootstrapping custom scripts, commands or actions 
+
+-> provisioner is attached to each resource defining the connection method and the
+  actions/commands or script to excute
+
+-> 2 types of provisioners
+  - creation-time: this run when resource is being created
+  - Destroy-time: when resource is deleted
+
+BEST PRACTICES WHEN USING PROVISIONERS
+
+-> use user data in aws
+-> terraform can't be tracked in state file

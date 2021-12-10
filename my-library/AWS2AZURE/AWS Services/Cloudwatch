@@ -1,0 +1,25 @@
+****************** CLOUDWATCH ****************************
+
+- AWS service for monitoring and logging purposes
+
+- We use it to monitor metrics from servers both on aws(ec2) or on-premises
+
+********* CLOUDWATCH TO MONITOR EC2 MACHINES ******************
+
+- curl or wget the amazon cloudwatch agent file
+
+- install the package
+
+- setup the configuration file
+
+- the config file is stored by default in /opt/aws/amazon-cloudwatch-agent/bin/config.json
+
+- yum update && yum install epel-release && yum install collectd
+OR
+- sudo apt-get update && sudo apt-get install collectd
+
+- sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -etch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
+
+- /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -c2 -a status
+
+- Go to metrics on cloudwatch, check the metrics-data sent to cloudwatch

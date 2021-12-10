@@ -1,0 +1,10 @@
+-> allows you to control what users are allowed to do and access within your clusters
+
+-> you can use rbac to allow developers to read metadata and logs from k8s pods
+   but not make changes to them
+
+-> Roles: these are set of permissions. these determines what users can do within a namespace
+
+-> ClusterRole: permissions not specific to a single namespace but overall cluster
+
+-> RoleBinding and ClusterRoleBinding link users to the role 

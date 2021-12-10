@@ -1,0 +1,77 @@
+RTO
+
+- recovery time objective
+
+- how long can i afford my application to be down
+
+
+RPO
+
+- recovery point objective
+
+- how much data can my application afford to lose
+
+AWS BACKUP
+
+- centralized service which helps automate backups and manage data protection
+  at scale through the console, API or cli
+
+- create a backup plan
+
+- assign resources
+
+- monitor modify and restore backups
+
+
+Service Level Backups
+
+- amazon FSx
+- amazon efs
+- dynamodb
+- ec2
+
+Service level snapshots
+
+- aurora
+- amazon rds
+- amazon ebs
+- amazon storage gateway
+
+Disaster Recovery Strategies
+
+- Backup and restore (hours)
+
+- Pilot light (10s of minutes)
+
+- Warm standby (Minutes)
+
+- Multi-site active/active (Real-time)
+
+
+Maintenance Windows
+
+- scheduled downtime to apply configuration changes or updates to your application
+  components
+
+- services that have maintenance windows
+  - rds
+  - elasticache
+  - redshift
+  - neptune
+  - documentdb
+
+S3 CROSS REGION REPLICATION
+
+- compliance objectives
+
+- Increase efficiency
+
+- Improves latency
+
+- create s3 buckets in seperate regions
+
+- turn on versioning
+
+- create a replication rule
+
+- high availability  

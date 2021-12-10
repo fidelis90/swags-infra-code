@@ -1,0 +1,114 @@
+************** GITHUB AS A DEVOPS ENGINEER **********************
+
+- Create a private repository
+
+- Create 3 branches ( Prod, UAT, and Dev )
+
+- Add team as collaborators
+
+- Enable SSH Based authentication
+
+- Protect Prod and UAT branches
+
+- 1 approval needed to check-in code on UAT and 2 approvals needed to check-in code
+  on to Prod branch
+
+- Build and Deploy should be successful before check-in the code onto UAT as well as
+   onto Prod
+
+
+************* BRANCHES STRATEGIES ******************************
+
+- We have three branches Test, QA, Prod
+
+- We must also have three Infrastructure in place for the deployment
+
+- Codes in the Test branch must be deployed in the test environment -> Dev environment
+
+- Working code in the Test branch is called Version1
+
+- Release 1 is the Version 1 of the working code transferred from the Test and QA Environments
+
+
+******************* BRANCH  IN GIT *****************************
+
+- By default, when we create a repository in git, we get a master branch
+
+- DevOps workflow
+  SCM -> Build -> Unit Testing -> Code Quality Analysis -> Code Security Analysis
+  -> Artifact repository -> Deployment tool
+
+- Once the build is successful, then we can have a compilation of our code
+  which is the Artifact. ( Artifact Repository ).
+    - java application: we build a .jar file
+    - .NET application: we build a .exe file
+
+- Once we have the artifact, we can use deployment tools to deploy it on the
+  server.
+
+************************ CLONE THE Repository ***********************
+
+- After creating the repository on github
+
+- Install git on your local machine
+
+- Introduce yourself to git by doing the following
+  - git config --global user.name ""
+  - git config --global user.email ""
+
+- To use a different user name and email,
+  - git config user.name "" #without the global #same with the email
+
+- Now to get the repository into our developer's local machine
+ - git clone <repo name>
+
+- cd into the repo
+
+- we find the .git folder -> config
+
+- cat config ->  [remote "origin"]
+  - this is the remote repository it is communicating with
+
+- how do we know how many commits have been made to the repository
+  - git log
+
+- How to make changes to the code in the repository
+  - working directory
+  - staging area : git add
+  - repository: git commit
+
+- git status: This tells us the status of the file and where they are
+  - modified: shows the file is in the working directory
+
+- To push from the local repository to remote repository
+  - git push origin <branch name>
+
+- To check all the branches in the git repository
+  - git branch
+
+- To create a new branch
+  - git branch <branch name>
+
+- To switch to a branch
+  - git checkout "branch-name"
+
+- The remote branch must have a local branch for sync-n purposes
+  - git branch test
+  - git push origin -u test
+  - Means that the test remote branch will have the updated codes
+  - if your test local branch needs the updated
+
+- when you want to update a new branch locally and remotely
+  - create the upstream to have the origin update
+    - git push origin -u test
+    - git branch test
+    - git checkout test
+    - update code in the test local branch
+    - git push origin test:test
+    - Now master is behind test and we have to update the master branch
+    - git
+
+- We cannot commit an empty directory to git repo.
+  - only way is to mkdir "emptydirectory"
+  - touch emptydirectory/.gitkeep
+  - then commit

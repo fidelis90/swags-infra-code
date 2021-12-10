@@ -1,0 +1,37 @@
+- Blue / Green Deployment
+  - 2 identical env
+  - 1 blue and 1 green
+  - Blue is the current version of our application
+  - Green is the new version of our application
+  - Live traffic --> Blue
+  - Test traffic --> Green
+
+- After testing is completed, the live traffic is directed to the green deployment
+ and the blue environment is deprecated
+
+- Low risk strategy 
+
+- Rolling Deployments
+  - Allows you to make changes in batches and deploy to only one portion of your environment
+    instead of using an all-or-nothing approach
+
+- When to use rolling deployment
+  - cost effective
+  - if you don't mind version inconsistency
+  - there is no test environment
+  - mixed environment
+
+- Canary deployments
+  - 20 webservers behind a load-balancer
+  - we can deploy the new version to the 4 webservers out of the 20webservers
+  - then we can route 10% of customer traffic to the 4 webservers with the new version
+  - allow testing the new version in production
+  - then after test in production we can direct 100% to the
+
+  - provides an early indication that something is wrong
+  - rollback is by redirecting traffic back to previous version
+
+  - Deploy the new version to small number of servers
+  - redirect small percent of customer traffic to the new version
+  - enable canary testing
+  - if any issue alerts, redirect 100% traffic back to the servers with previous version

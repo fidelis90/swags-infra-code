@@ -1,0 +1,33 @@
+- scripted pipeline as a code
+
+- most popular syntax is the declarative
+
+- agent == node
+
+- pipeline must be top level
+
+- post: Execute some logic after all stages executed
+   - conditions:
+       - always
+       - failure
+       - success
+
+- conditional statements for each stage
+  - when
+    when {
+      expression {
+         BRANCH_NAME == "dev"
+      }
+    }
+
+- Environmental variables
+  -  jenkins:8080/env-vars.html
+  - BRANCH_NAME: for a multibranch pipeline
+  - BRANCH_IS_PRIMARY: set to true else unset
+  - TAG_NAME: for multibranch project
+
+  - Global environment variable
+    - this will be available to all the stages
+
+- Using Credentials in Jenkinsfile
+ - global environment block 

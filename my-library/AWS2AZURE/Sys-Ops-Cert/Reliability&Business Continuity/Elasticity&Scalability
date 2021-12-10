@@ -1,0 +1,36 @@
+Elasticity
+
+- stretching and retracting our infrastructure based on demand
+
+- allows to pay as you go
+
+- short term
+
+- Autoscaling
+
+SCALABILITY
+
+- scale out the infrastructure
+
+- long term
+
+
+
+- Scalability is building your infrastructure to meet demand
+
+- Elasticity VS Scalability
+  - EC2
+    - Configure auto scaling to increase and decrease the number of ec2 instances
+    - increase the instance sizes, use reserved instances
+
+  - DynamoDB
+    - Increase / decrease the IOPS based on the traffic spikes
+    - unlimited amount of storage( auto scaling is enabled by default)
+
+  - RDS
+    - Can't scale on demand
+    - Can increase the instance size or add to the number of instances
+
+  - Aurora
+    - Autoscale up or don to meet varying demand on the database
+    - Modify the instance type and scale out with additional read replicas

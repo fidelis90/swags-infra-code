@@ -1,0 +1,84 @@
+**************** EC2 SERVICE ******************************
+
+This is the service on AWS that users create VMs and host applications on
+a network.
+
+IP ADDRESSES
+
+- Public IP
+- Private IP
+- Elastic IP: These are fixed public IPs and attached to instances
+
+DEDICATED HOSTS
+
+- A physical EC2 server for your use.
+
+THE VIRTUALIZATION CONCEPT OF EC2
+
+- On a physical server in a particular availability zone, Ec2 servers are created
+  on it.
+
+AMAZON MACHINE IMAGE
+
+- Preconfigured templates for your instances that package that bits you need
+  for your server which includes the OS & Additional softwares
+
+
+NOTE: Platform detail is the option to know the OS of a server
+
+
+******************  LOADBALANCING **********************************
+
+- Spreads load across multiple servers
+- makes your applications highly available and fault tolerant
+- provide ssl terminnation for websites
+
+
+Every vendor of ssl certificates have their public certificates on the popular
+web browsers, you buy the private certificates and attach it to your LB
+
+TYPES OF LOAD BALANCERS ON AWS
+
+- Classic LB
+  - Old version
+  - One App = One Classic LB
+  - Supports ssl termination
+  - Layer 4 & 7
+
+- Network LB
+  -  New Version
+  - Layer 4
+  - High performance
+  - doesn't have a security group
+
+- Application LB
+  - New Version
+  - Layer 7
+  - sends traffic to multiple applications across different target groups
+  - applications are attached to target groups
+  - target groups are attached to the ALB or NLB
+  - port mapping feature to redirect to a dynamic port
+  - good for microservices or docker container based apps
+  - Client connections terminates at the ALB
+  - ALB creates a new connection with the target group
+
+
+PROJECT
+
+- We have a web application
+
+- we are using 2 instances to host the work and images module
+
+- the webserver is apache
+
+- we have the root document at /var/www/html
+
+- webserver named work has work module in  /var/www/html/work/index.html
+
+- webserver named work has images module in  /var/www/html/images/index.html
+
+The idea is we create two target groups that holds each webserver instance
+
+We create an application load balancer to route traffic based on route
+
+We already created the rule for http listener

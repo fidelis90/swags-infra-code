@@ -1,0 +1,32 @@
+***************** CLOUDWATCH **********************************
+
+- This is a monitoring service to monitor resources as well as applications
+- monitor things like
+  - compute: ASG, Elastic load balancers, Route 53 health checks
+  - Storage and content delivery: EBS Volumes, storage gateways, Cloudfront
+  - Databases: Dynamodb, redshift, rds instances, elasticache nodes
+  - sns topics, sqs
+
+- Host level Metrics consist of
+By default these are the metrics cloudwatch monitor
+  - cpu
+  - Network
+  - Disk
+  - Status check
+
+  Exam tip
+  - RAM Utilization is a custom metric
+  - by default ec2 monitoring is 5 minute intervals
+  - you can retrieve log data from terminated ec2 instance and elb instance
+
+  - The minimum granularity for storing custom metrics is 1mins
+
+
+CLOUDWATCH ALARMS
+- Set alarms on metrics
+- ec2 cpu utilization
+- ec2 disk utilization
+- ec2 memory utilization
+
+- Cloudwatch can be used on prem, all you need is to install the cloudwatch agent
+  and ssm agent

@@ -1,0 +1,55 @@
+- security service which provides automated security assessments on your ec2 instances
+
+- common vulnerabilities and exposures
+
+- network security best practices
+
+- application security best practices
+
+- you install the aws agent on ec2 instances 
+
+- then you can run assessment for targets
+
+AWS INSPECTOR REPORTING
+
+- common vulnerabilities and exposures
+
+- network security best practices
+
+- authentication best practices
+
+- Operating system best practices
+
+- Application Security best practices
+
+
+AWS TRUSTED ADVISOR
+
+- AWS sevrice which offers recommendations to optimize your aws resources according to best practices
+
+- cost optimizations
+
+- performance
+  - High utilization of ec2 instances
+  - Excessive rules in security group
+  - Amazon ebs volume attachment configuration
+  - over utilized ebs magnetic volumes
+  - cloudfront cdn optimization
+
+- security
+  - ebs public snapshots
+  - rds public snapshots
+  - s3 buckt permissions
+  - iam usage
+  - mfa on root account
+  - security group with unrestricted ports
+
+- fault tolerance
+
+- service limits
+  - auto scaling groups and launch configurations
+  - cloudformation stacks
+  - DynamoDB read and write capacity
+  - ec2 reserved and on-demand leases
+  - rds configurations checks
+  - vpc internet gateways

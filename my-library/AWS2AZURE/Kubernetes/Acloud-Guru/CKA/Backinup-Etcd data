@@ -1,0 +1,7 @@
+-> etcd is the backend data storage for the k8s cluster
+
+-> all the k8s object, apps and configs are stored in the etcd
+
+-> etcd has a command line tool: etcdctl
+
+-> you can restore etcd data from a backup using the etcdctl snapshot restore 

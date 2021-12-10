@@ -1,0 +1,26 @@
+- aws proprietary MySQL and PostgreSQL compatible relational database
+
+- aurora provides the speed, performance and scale of popular commercial databases
+  with the simplicity of the more common open source databases
+
+- provides fault-tolerant and self-healing storage system which lowers the risk of data loss
+
+AURORA SCALING
+
+- uses cluster volumes
+
+- storage auto scaling
+
+- self healing storage
+
+- cache warming
+
+- spreads data across 3 az using data copies
+
+- 2 copies of data is stored 3 azs 
+
+- 100% cpu utilization
+   - issue with WRITES: scale up the instance size
+   - issue with READS:increase read replicas
+
+- aurora serverless is the auto scaling version of aurora

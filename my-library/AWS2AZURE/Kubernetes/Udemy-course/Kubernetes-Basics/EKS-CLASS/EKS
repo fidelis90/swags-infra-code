@@ -1,0 +1,51 @@
+- Elastic kubernetes service
+
+- This service helps manage the control plane of the kubernetes cluster(master nodes)
+  - High availability
+    - maintain multiple ec2 nodes in multiple AZs
+  - Scale control plane if needed
+  - Keep etcd up and running
+  - Overhead of managing  ec2s
+    - AMI rehydration
+    - security patching
+    - replace failed ec2s
+    - orchestration for k8s version upgrade
+
+- EKS Data Nodes
+  - Self Managed
+     - Can use custom AMI
+
+  - AWS Managed
+     - Can't use custom AMI
+
+- AWS Fargate
+     -  No worker ec2
+     - you define and deploy pods
+     - container + serverless
+
+- Running k8s in eks gives integration with multiple aws services
+   - iam
+   - cloudwatch
+   - secrets manager
+   - codepipeline
+   - elb
+   - route-53
+
+
+HIGH LEVEL FLOW
+
+EKS CLUSTER -> AWS DEPLOYS AND MANAGE MASTER NODES -> CUSTOMER ADDS WORKER NODES
+-> Keep using the k8s tools
+   - kubectl, prometheis, grafana, splunk, fluentd, fluentbit, cloudhealth, kubecost, jenkins
+     , gitlab, and many more
+
+-> when the eks create cluster is executed
+  - eksctl deploys a nodegroup stack in cloudformation
+  - eksctl deploys a cloudformation stack for the cluster name
+
+
+EC2 Instance Type and Pod Limit
+
+- Max number of allowed pods depends on ec2 instance type
+
+- Bigger the instance type, more pods

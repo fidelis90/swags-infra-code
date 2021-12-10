@@ -1,0 +1,34 @@
+- used to create, store and manage encrytpion keys
+
+- centrally manage crypographic keys within aws
+
+- inetgrates with many aws services
+
+- Logs key usage within aws cloudtrail logs for compliance and audits
+
+CMK
+
+- Customer master key: holds key material to encrypt data.
+
+- cmks can only encrypt up to 4kb of data
+
+- generate, encrypt and decrypt the data key
+
+- Data key: used to encrypt and decrypt your data
+
+- alias: apps can refer to the alias when using the cmk
+
+- Key state
+  - enabled
+  - disabled
+  - pending
+  - deletion
+  - Unavailable
+
+- CMK always live in KMS, can never be exported
+
+KMS CLI COMMANDS
+
+- aws kms encrypt/decrypt
+- aws kms re-encrypt
+- aws kms enable-key-rotation

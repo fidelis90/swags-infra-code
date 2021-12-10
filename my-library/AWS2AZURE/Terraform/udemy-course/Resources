@@ -1,0 +1,25 @@
+- aws_key_pair
+  - This is used to control login access to ec2 instances
+  - it requires an existing user supplied keypair
+  - the public key will be registered with AWS to allow logging-in to EC2 instances
+
+  resource "aws_key_pair" "deployer" {
+  key_name   = "deployer-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com"
+}
+
+
+- aws_instance
+  - Allows ec2 instances to be created, updated and deleted.
+  - Also support provisioning.
+    - provisioners can be used to model specific actions like upload and executing files
+      on the localhost or remote machine
+
+
+- PROVISIONER
+   - local-exec: command
+     - This invokes a local executable after a resource is created. This invokes
+       a process on the machine running Terraform, not on the resource.
+
+   - remote-exec: inline
+      -

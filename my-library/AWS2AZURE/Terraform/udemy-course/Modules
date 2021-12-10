@@ -1,0 +1,22 @@
+- You can use modules to make your terraform more organized
+
+- use third party modules
+   - Modules from github
+     module "module_example" {
+        source = "github.com/*"
+     }
+
+- Reuse parts of your code
+   - to setup network in AWS - VPC
+
+- You can also use a module from a local folder 
+  module "m-example" {
+    source = "./module-example"
+  }
+
+- You can pass arguments to a module
+
+- Inside the module folder, you just have tf files
+  - vars.tf
+  - clusters.tf
+  - output.tf

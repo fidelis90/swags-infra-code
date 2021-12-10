@@ -1,0 +1,12 @@
+- Federated Identity is the authentication of user Identity across multiple
+  platforms and applications
+
+- aws sso provides Federated Identity within aws
+
+- integrates with aws organizations for giving access to users across organizational units,
+  aws accounts and aws api operations
+
+- simplifies application sign-on
+
+- integrates with active directory that is on-prem by using AD connector or by
+  creating a AD trust in AWS Directory service

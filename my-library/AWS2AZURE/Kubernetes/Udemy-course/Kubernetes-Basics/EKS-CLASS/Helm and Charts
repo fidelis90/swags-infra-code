@@ -1,0 +1,23 @@
+*********** HELM CHARTS ****************
+
+- This is a package manager for kubernetes
+- Helm packages are called charts
+- help install and upgrade complex kubernetes applications
+- helm packages can be versioned, shared and published
+- helm charts can accept input parameter
+  - kubectl need template engine to do this
+
+- yum install python | helm install python
+
+- Helm charts are the easiest and quickest way to deploy containers on a k8s cluster
+  that are ready to handle production workloads
+
+- when you do helm install chart, it makes all the deployment needed to run the
+  application
+  - for example, if we need a nginx webserver container deployed inside our eks cluster
+  - manually we will have to create the service manifest file and deployment manifest file
+
+  - but with helm chart, we can just do helm install nginx and the deployment is made and even a service is created
+    for us. (mostly a loadbalancer service)
+
+  

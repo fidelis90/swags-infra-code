@@ -1,0 +1,46 @@
+- The elasticsearch service is used to store massive data like log data collected
+  from remote servers or systems
+
+- On those servers we have filebeat installed on them, these agents ingest data
+  on to elasticsearch
+
+- We use kibana to analyze and visualize the data.
+
+- This demo cluster has 3 ubuntu servers in the cluster
+
+- The servers are in three different regions of the world for high availability
+
+- All nodes have metricbeats installed
+
+- The configuration file for ES is in the /etc/elasticsearch/elasticsearch.yml
+
+- The master node is chosen dynamically
+
+- Iptable security needs to be configured in the cluster in order to allow connections
+  from nodes in the cluster only and drop everything else.
+
+- Elasticsearch uses port 9200 and 9300
+
+- Documentation on ES-Cluster: https://sbcode.net/grafana/elasticsearch-cluster/
+
+
+TROUBLESHOOTING CLUSTER TIPS
+
+- If a data node isn't joining the cluster.
+  - rm -rf /var/lib/elasticsearch/nodes
+
+
+INSTALL METRICBEAT on the Nodes
+
+- the config file for metricbeat is /etc/metricbeat/metricbeat.yaml
+
+- metricbeat has a whole lot of modules
+
+- The metricbeat on all servers are pointed to the nodes in the ES cluster
+
+- so if any node in the cluster is down, the data can still be retrieved from
+  any other node
+
+- we use grafana or kibana to visualize and analyze the data
+
+- one of the nodes ip is used as endpoint to the cluster

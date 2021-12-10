@@ -1,0 +1,30 @@
+- Distributed denial of service
+
+- an attack that attempts to make your website or application unavailable to your end users
+
+- can be achieved by
+  - large packet floods
+  - combination of reflection and amplification techniques
+  - large botnets
+
+- ATTACKS
+  - Amplification/Reflection
+    - an attacker may send a 3rd party server (such as NTP server) a request using a
+      spoofed IP address. These attacks can include NTP, SSDP, DNS, Chargen, SNMP attacks etc
+
+  - Layer 7 attack
+    - flood of GET attacks to web servers
+
+- MITIGATION IDEAS
+  - Minimize the attack surface area
+  - Be ready to scale to absorb the attack
+  - safeguard exposed resources
+  - learn normal behavior
+  - create a plan for attacks
+
+- AWS SERVICES
+  - amazon shield
+    - protects ELB, Cloudfront and route 53
+    - protects syn/udp floods, reflection attacks
+  - amazon web app firewall
+  - amazon cloudwatch

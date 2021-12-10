@@ -1,0 +1,34 @@
+-> create a VPC
+   - always create instances in the vpc created by terraform
+   - split our vpcs into public and private subnets using availability zones
+   - 3 main-public-subnets and 3 main-private-subnets
+   - we use the public subnets for internet facing instances
+   - load balancers will be in the public subnets
+
+-> Spinning EC2 instances inside the VPC
+   - create ec2 instances
+   - create security groups
+     - egress and ingress traffic rules
+     - allow all outgoing traffic
+   - create the keypair
+
+-> Attaching EBS
+   - the t2.micro adds 8g of ebs storage
+     - set to be automatically removed when instance terminates
+     - you can increase the root volume using root_block_device block under the
+       aws_instance resource
+   - some instances have local storage on the instance itself
+     - this storage is always lost when instance terminates
+
+   - when a new ebs volume is attached to the instance
+     - we mount it on /data for example
+     - if we terminate the instance, we lose the data cos we have lost the root
+       volume
+     - solution is userdata
+
+-> USERDATA
+   - Used to customize instances at launch
+   - prepare the instance to join a cluster
+   - execute commands or scripts
+   - Mount volumes at launch
+   - only useful at creation

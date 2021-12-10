@@ -1,0 +1,15 @@
+Scenario: We have a fleet of apache webservers that must be configured to serve
+the same web content. They all have the tag role: webserver, to identify them
+
+GOAL
+To setup a process that verifies if these instances are configured properly all
+the time.
+
+STEPS
+- We have our ansible codes in version control system like github
+- setup a webhook to always run a jenkins job that will push the ansible codes
+  to our s3 bucket
+- make sure the AWS bucket is accessible to other accounts
+- The s3 url should be placed in the source info
+   {"path": "url"}
+- The path to the playbook 

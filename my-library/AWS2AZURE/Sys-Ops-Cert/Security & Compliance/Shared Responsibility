@@ -1,0 +1,26 @@
+- Customer
+  - Platform, APPS, iam
+  - OS, Network and Firewall configuration
+  - Client-side encryption
+  - Server side encryption
+  - Networking Traffic Protection
+
+- AWS
+  - Security of the cloud
+  - Hardware
+  - Security of data centers
+  - Global infrastructure
+
+
+SHARED MODEL FOR DIFFERENT SERVICES
+
+- EC2, EBS, AUTO-SCALING, VPC: You control the Operating system and configure IAM
+  policies for access control based on the user permissions
+
+- Container Services
+  - ECS, EKS, ELASTIC MAPREDUCE, LAMBDA, RDS, BEANSTALK
+  - You are responsible for setting-up network controls, such as firewall rules,
+    and for managing platform-level identity and access management seperately from IAM
+
+- S3, Glacier, DynamoDB, SQS, SES: AWS manages the underlying service compnents
+  or the OS on which they reside

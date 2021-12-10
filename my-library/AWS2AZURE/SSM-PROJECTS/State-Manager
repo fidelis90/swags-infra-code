@@ -1,0 +1,19 @@
+- This is a secure and scalable configuration management service that automates
+  the process of keeping your amazon ec2 and hybrid infrastructure in a state that you define
+
+BENEFITS OF STATE MANAGER TO MY ORGANIZATION
+
+- Bootstrap instances with specific software at start up
+- Download and update agents on a defined schedule, including the ssm agent
+- configure network settings
+- Patch instances with software updates throughout their lifecyle
+- Run scripts on linux, macos and windows managed instances throughout their
+  lifecycle
+
+ASSOCIATION
+
+- This is a configuration that is assigned to your managed instances.
+- The configuration defines the state that you want to maintain on your instances
+- The association specifies a schedule for when the configuration is applied once or
+  reapplied at specified times.
+- 

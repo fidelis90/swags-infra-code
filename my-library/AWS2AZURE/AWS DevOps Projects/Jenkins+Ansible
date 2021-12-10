@@ -1,0 +1,39 @@
+- Ops Instance on AWS ( Ansible and Jenkins Installed )
+- setup ssh key between jenkins and github
+- give the jenkins a bash shell prompt
+- ssh-keygen -t rsa
+- eval $(ssh-agent -s)
+- ssh-add ~/.ssh/id_rsa
+- copy the public key
+- make sure you use python3 to install ansible on jenkins user
+
+- Go to the jenkins GUI
+
+- Install plugins on the jenkins
+  - go to manage jenkins
+  - Ansible plugin
+  - Office 365 connector plugin
+
+- Create New Item
+  - Name: Ansible
+  - Create a freestyle project
+  - The ansible plugin and O-365 plugins will give us the modules 
+  - Execute a shell script
+  - commands: whoami && pwd
+  - build the job
+  - go to console output
+
+- directory /var/lib/jenkins/workspace/ on the jenkins server has the job name as a
+  directory. /var/lib/jenkins/workspace/Ansible
+
+- cd Ansible job && mkdir playbooks
+- cd playbooks && vim create_bucket.yml
+
+- make sure the jenkins instance has permissions to S3( create a role )
+- go to jenkins and configure the Ansible job
+
+- add a new build step: Run a playbook
+- put the path to the playbook
+
+- build Now
+- Validate bucket creation in s3

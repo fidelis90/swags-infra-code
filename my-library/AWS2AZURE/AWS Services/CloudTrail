@@ -1,0 +1,29 @@
+****************** CLOUDTRAIL *****************************
+# Check Everything about CloudTrail In BINARY AND DOCTORS.COM
+
+
+
+
+CloudTrail monitors every resource actions taken in a particular AWS accounts
+and stores them as logs which cloudtrail can:
+
+- store in a s3 bucket : archive and audit
+- send to amazon cloudwatch: Monitor, alarm and react
+- Creating a trail at the console is a multi-region trail
+- You can configure other aws services to further analyze and act upon the event
+  data collected in CloudTrail logs.
+- To create a trail in a single region we use the aws cli
+
+
+
+HOW IT WORKS
+
+- Create trail
+
+Types Of Events That CloudTrail Logs
+
+- Management Events: These are events like API usage, consolelogin to the account
+
+- Data Events: user uploading a file to s3 bucket, lambda functions,
+
+- Log Insight

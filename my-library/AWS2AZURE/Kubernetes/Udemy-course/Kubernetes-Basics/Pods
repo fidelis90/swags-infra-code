@@ -1,0 +1,22 @@
+****** PODS *****************
+
+THE BIG PICTURE
+
+App -> Dockerfile -> jenkins -> dockerhub -> k8s cluster (Running containers)
+
+- Before we can have the containers deployed to k8s cluster, the containers are
+  encapsulated in a k8s object called PODS
+
+- Always remeMBER NPC,
+
+- Node -> Pod -> Containers
+
+- One App container per pod
+
+- Each POD has a unique IP
+
+- At scale, k8s scale up pods not containers, so we can have multiple pods in a node
+
+- Best practice a pod = a app container
+   - for multiple containers in  pod, we use ports to expose the containers
+   - but the app containers have same ip cos they are in a pod

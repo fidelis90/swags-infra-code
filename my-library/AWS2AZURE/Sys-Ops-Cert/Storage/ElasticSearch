@@ -1,0 +1,40 @@
+- Data analysis tool
+
+- analyze your business application logs
+
+- a fully managed elasticsearch service
+
+- aws setup the cluster for you
+
+- Elasticsearch environment
+  - Master Nodes
+  - Data Nodes
+
+- integrates with
+  - Logstash
+  - filebeats
+  - cloudwatch
+  - Kibana
+  - Lambda
+
+- Based on the open source ES tech
+
+- Deployment Best pRcatices
+ - Deployment types
+   - production
+   - devlopment and testing
+   - Custom
+
+- It is best practice to deploy 3 master and data nodes in 3 azs
+
+
+DEMO
+
+- Create an ES Domain
+
+- Explore the network configuration
+
+- Connect to our public domain
+
+- Note: after domain is created you cannot remove the public endpoint or make it
+   private

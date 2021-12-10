@@ -1,0 +1,16 @@
+-> Namespaces are virtual clusters that are backed by the same cluster.
+
+-> k8s objects such as pods and containers, live in namespaces.
+
+-> namespaces helps to organize your objects in your cluster.
+
+-> kubectl get ns
+
+-> incase no ns is specified, kubernetes uses the default ns
+
+-> kubectl get ns ; the two ns we should know better
+   - kube-system 
+   - default
+
+-> Incase you searching for a pod and you don't remember the ns where it lives
+   - kubectl get pods --all-namespaces

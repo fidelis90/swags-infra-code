@@ -1,0 +1,61 @@
+DIfficulty levels
+
+In ascending order
+
+-> Certified Cloud Practictioner
+-> Solutions Architect Associate
+-> Sysops Administrator Associate
+-> Developer associate
+-> Devops Pro
+-> Solutions architect professional
+
+
+HIGH LEVEL SERVICES
+
+AWS GLOBAL INFRASTRUCTURE
+- Compute
+- Storage
+- Databases
+- Migration and transfer
+- Network & Content-delivery
+- Security, Identity and compliance
+- AWS Cost management
+
+***************************************************************************
+
+GLOBAL INFRASTRUCTURE
+
+- Availability zone: This is a data center filled with servers
+ - An AZ can have several data centres, but becos they are close together
+   we say it is 1 AZ
+
+- Region: This is a geographical area Each region consists of 2 or more AZs
+
+- Edge Locations: These are endpoints for AWS which are used for caching content.
+  This consists of cloudfront, amazon Content delivery network
+  There are many edge locations than regions
+- Currently there are over 150 edge locations
+
+SERVICES TO KNOW TO PASS SAA-C02 EXAM
+
+HIGH LEVEL SERVICES
+
+- Compute
+- Storage
+- Databases
+- Migration and transfer
+- Network & Content-delivery
+- Security, Identity and compliance
+- AWS Cost management 
+- Analytics
+- Desktop and App streaming
+- Management and governance
+- Machine learning
+
+CORE SERVICES
+
+- Compute
+- Storage
+- Databases
+- Network & Content-delivery
+- Security, Identity and compliance

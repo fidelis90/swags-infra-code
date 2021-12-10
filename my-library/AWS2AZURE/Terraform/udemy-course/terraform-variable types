@@ -1,0 +1,96 @@
+************** VARIABLES IN TERRAFFORM **************
+
+-> We use variables to hide secrets
+-> We don't want the aws credentials in your repo
+-> We put the aws credentials in a seperate file, and we don't commit the file.
+-> Use elements for elements that might change
+-> Use variables to make it easier to reuse the terraform files
+- - vars.tf: the variables we working with
+- terraform.tfvars: the values of the variables
+- main.tf: the module for the configuration
+
+ami id lookup: cloud-images.ubuntu.com/locator/ec2
+
+# The project related to this variable application is the Ec2-instance-creation
+in VS-CODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- you can now have for and for-each loops
+
+- you don't have to specify the variable types bt it is recommended to do so
+
+- Variable Types
+   -> String
+   -> Number
+   -> Bool
+
+- Terraform's complex types
+   -> List(type)
+   -> Map(type)
+   -> Set
+   -> object
+   -> tuple
+
+- A set is like a list, but it doesn't keep the order you put it in, and can only
+  contain unique values.
+
+- A list that has [5,1,1,2] will have [1,2,5] in a set
+
+- Object is like a map, but each element will have a different type
+
+{
+   firstname = "John"
+   housenumber = "10"
+}
+
+- tuple is like a list, but each element has different types
+
+  tuple = [1, "string", false]
+
+- most common types are list and map
+
+
+************** VARIABLES IN TERRAFFORM **************

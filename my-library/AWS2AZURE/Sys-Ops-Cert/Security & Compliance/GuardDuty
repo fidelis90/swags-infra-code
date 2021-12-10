@@ -1,0 +1,24 @@
+- uses machine learning to detect malicious behaviour in your aws account
+
+- checks for unusual API Calls from a known malicious IP addr
+
+- avoids disabling cloudtrail
+
+- compromised s3 bcukets
+
+- compromised ec2 instances
+
+- compromised account
+
+- It takes about 7-14 days to analyze your account
+
+- 30 days free trial
+
+
+FEATURES
+
+- can configure alerting
+
+- Threat analysis feeds
+
+- log analysis

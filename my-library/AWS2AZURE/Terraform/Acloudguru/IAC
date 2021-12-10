@@ -1,0 +1,20 @@
+-> This is write down what you want to deploy as human readable formats
+   no more clicks
+
+-> Enables DevOps
+  - it can be tracked in a version control system
+  - enables better visibility and team collaboration
+
+-> Declarative infrastructure
+
+********* WORKFLOW **********
+
+- WRITE
+  - Setup a GITHUB repo to host your terraform codes for team to collaborate
+
+- PLAN
+  - This will reveal the changes the code will make to your infrastructure
+  - you aLWAYS go back and forth between write and plan to perfect your code
+
+- APPLY
+  - you deploy the real infrastructure  

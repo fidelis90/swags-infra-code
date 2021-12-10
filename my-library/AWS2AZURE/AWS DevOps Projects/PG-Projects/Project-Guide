@@ -1,0 +1,12 @@
+DEVOPS AUTOMATED WAY OF DEPLOYING SECURITY PACKAGES ON ALL INSTANCES 
+ACROSS ALL AWS ACCOUNTS IN PRESSGANEY
+
+- Create an s3 bucket in a DevOps bucket for storing the artifacts
+
+- Create a hook between Jenkins and Github to always sync the repository in github
+  with s3 bucket
+
+- Use SSM ansibleplaybook document to pick the playbook in the s3 bucket
+  to perform the installation.
+
+-

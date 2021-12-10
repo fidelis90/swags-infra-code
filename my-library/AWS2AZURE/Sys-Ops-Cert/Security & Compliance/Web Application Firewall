@@ -1,0 +1,40 @@
+- Application firewall that monitor http/https traffic
+
+- filter web traffic and configure conditions
+
+- integrations
+ - ALB
+ - cloudfront
+ - api gateway
+ - Cloudwatch
+
+- waf doesn't integrate with Classic and Network LB
+
+- create rules to allow/block traffic based on the ffg
+  - malicious sql code/scripting
+  - ip addr of the request
+  - country of the request
+  - size of the request
+  - string matching of part of the request 
+
+DEMO
+
+- Create api through api gateway
+
+- use waf to create a web acl to blcok traffic from our location
+
+- test to verify the acl is working
+
+
+API
+
+- Application programming interface
+
+- allows two apps to talk to each other
+
+- when you use an app on your phone, the app onnects to the internet and sends data
+  to a server.
+
+- makes it possible for multiple services to communicate ( like Instagram communicating with twitter )
+
+- provides layer of security between two endpoints

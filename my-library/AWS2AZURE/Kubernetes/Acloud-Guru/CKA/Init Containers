@@ -1,0 +1,8 @@
+- Can be used to cause a pod to wait for another k8s resource to be created before
+  starting up
+
+- Perform sensitive startup steps securely outside of app containers
+
+- Populate data into a shared volume at startup
+
+- Communicate with another service at startup

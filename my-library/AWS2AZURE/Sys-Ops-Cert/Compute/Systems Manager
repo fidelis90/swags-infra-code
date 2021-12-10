@@ -1,0 +1,29 @@
+SYSTEMS MANAGER
+
+- Visibility and control over your aws resources
+
+- Inventory of your ec2 instances
+
+- Automation
+  - Installing apps
+  - Script execution
+  - Patching
+  - Logically group resources
+
+  - Run command: perform operational tasks
+
+
+AUTOMATING PATCHING USING SYSTEMS MANAGER
+
+- Create an IAM role
+  - amazonec2roleforssm
+
+- attach the role to the ec2 instance
+
+- select fleet manager in ssm
+
+- select patch manager
+
+- check the baseline patch 
+
+RUN COMMAND

@@ -1,0 +1,41 @@
+- Create temporary security credentials that grant trusted users access to your
+  resources
+
+- Endpoints: Credentials are returned with 3 components
+  - Security Token Service
+  - Access key ID
+  - Secret Key ID
+
+- AWS CLI MAKES IT EASY TO REQUEST STS CREDENTIAL PROGGRAMMATICALLY
+
+- recording api requests: supports cloudtrail and can be configured to deliver log files to s3
+
+- Federation: join or combine users in one domain( such as iam) with a list of users
+  in another domain ( such as Active Directory, Facebook etc).
+
+- Identities: Users of a service like facebook
+
+- Identity Broker: a service that allows you to take an identity from point A to
+  point B
+
+- Identity store: services like active Directory, FACEBOOK, Google etc
+
+
+STS USE CASE
+
+- Employee puts the credentials in an enterprise app
+
+- the app communicates with the identity broker with authenticate
+
+- the broker checks the LDAP Directory to validate the user's identity
+
+
+
+EXAM TIPS
+
+sts is used for
+
+- enterprise identity federtaion
+- Web identity federation
+- Cross-account access
+- Roles for ec2 instances and other aws services

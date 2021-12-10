@@ -1,0 +1,40 @@
+- allows you to easily deploy, scale and manage an app's most queried data
+  within an in-memory cach in cloud
+
+- Improves latency
+
+- improves app performance
+
+- Types
+  - MemCached
+    - Multithreading
+    - No snapshots
+    - 
+    - Data partitioning
+    - Milisecond latency
+
+  - REDIS
+    - Snapshots
+    - Replication
+    - ADVANCED Data structures
+    - Data partitioning
+    - Sub Millisecond latency
+
+- Simple Architecture
+
+Application
+
+Elasticache
+
+Database
+
+- CacheHit : when application's query is found in the Cache
+
+- CacheMiss : when app's query isn't found in the cache and will need to get it from the databse
+
+METRICS TO MONITOR
+
+- cpu utilization
+- swap usage
+- evictions
+- concurrent connections

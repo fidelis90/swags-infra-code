@@ -1,0 +1,56 @@
+- This is an opensource search engine
+
+-  Queries are significantly faster with Elasticsearch
+
+- Analyzing logs
+
+- This is not a relational database
+
+- Scale up to thousands of servers
+
+- Accomodates petabytes of data
+
+- This is used for log management.
+
+- Most organizations use Elasticsearch, Logstash and kibana for log management
+
+ELK Setup
+
+- Elasticsearch: This is used to store all the application and monitoring logs
+
+- Logstash: The server component that processes incoming logs and feeds to ES
+
+- Kibana: a web interface for visualizing logs
+
+LOG ANALYSIS PROCESS
+
+Logstash
+  - Collection of the logs
+  - Cleaning the data
+
+Elasticsearch
+  - Stores the logs
+  - Conversion into structured form
+
+Kibana
+  - Visual Analysis of logs
+
+
+ELK FLOW
+
+- First the beats attached to remote servers collects the logs and sends to logstash for filteration
+
+- Logstash which is the data pipeline, filters the logs and ships to elasticsearch for storage
+
+- The data in elasticsearch is now indexed and stored, and awaits kibana to come get them for visualization
+
+- Kibana gets the data from Elasticsearch
+
+
+Features of ELK
+
+- Systems performance monitoring
+
+- Application performance monitoring
+
+- Data visualization

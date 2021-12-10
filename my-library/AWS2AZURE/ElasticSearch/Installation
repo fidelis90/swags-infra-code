@@ -1,0 +1,39 @@
+PRE-REQUISITES
+
+- >= 2gb of RAM
+- >= 20GB of storage
+- JAVA
+
+- After meeting the requirements, you can download and install elasticsearch
+  on the node
+
+- /etc/elasticsearch has the default runtime config for elasticsearch
+
+- Log file location
+
+- Download and install kibana
+  - /etc/kibana/kibana.yml
+
+- Download and install logstash
+  - This will create a logstash user and group
+  - create a dedicated service file for logstash
+
+- Install nginx and add a proxy configuration to always redirect port 80 connection to
+  5601(kibana) on localhost
+
+- htpasswd -c /etc/nginx/htpasswd.users kibadmin: for creating the kibadmin user and password
+
+
+- Normally kibana cannot be accessed by anyone, so we integrate kibana with nginx webserver
+
+
+- We need some static data, to visualize using kibana
+
+- wget https://logz.io/sample-data
+
+- after importing the static log data we put that in apache.log file
+
+- then we vim /etc/logstash/conf.d to write our pipeline on how data will be injected into
+  elasticsearch
+
+-

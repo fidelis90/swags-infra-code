@@ -1,0 +1,9 @@
+- view and manage security alerts
+
+- automate security checks
+
+- centralized view
+
+- compliance
+
+- uses aws config to perform many of its checks

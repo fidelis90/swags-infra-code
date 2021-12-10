@@ -1,0 +1,7 @@
+- Dedicated Instances
+  - reserved hardware for ec2 instances
+  - a portion of the hardware is reserved
+
+- Dedicated Hosts
+  - the whole hardware is reserved for ec2 instances
+  - per host billing 

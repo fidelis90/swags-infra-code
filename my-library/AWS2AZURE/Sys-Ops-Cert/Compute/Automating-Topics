@@ -1,0 +1,21 @@
+AUTOMATING EBS SNAPSHOTS USING DATA LIFECYCLE MANAGER
+
+- Launch an ec2 instance with an attched ebs volume
+
+- create a lifecycle policy within data lifecycle manager
+
+- enable cross-region replication for our ebs snapshot
+
+
+
+USING DYNAMODB STREAMS FOR BACKING UP YOUR TABLE TO ANOTHER REGION
+
+- DynamoDB is a fast and flexible NoSQL db service for all apps that need consistent,
+  single-digit millisecond latency at any scale
+
+- it is a fully managed db and supports both document and key-value data models
+
+- it's flexible data model and reliable performance make it a great fit for
+  mobile, web, gaming, IoT and many other apps
+
+-

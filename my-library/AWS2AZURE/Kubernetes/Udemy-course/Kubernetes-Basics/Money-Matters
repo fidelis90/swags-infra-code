@@ -1,0 +1,9 @@
+- The price is divided into 2 components 
+  - The control plane(master nodes)
+  - The data plane(worker nodes)
+
+- Master node: Flat charge of 10 cents/Hour = 72$ /month
+
+-  Check AWS price calculator
+
+- m5.large price can be checked on the site

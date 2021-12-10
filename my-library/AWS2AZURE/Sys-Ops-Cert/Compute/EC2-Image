@@ -1,0 +1,42 @@
+EC2 IMAGE BUILDER 
+
+-> Creates amis for ec2 instances
+
+-> test and validate images
+
+-> automates the process of creating and maintaining your images
+
+-> when software updates are available, image builder can automatically create a
+   new image, run validation tests on the new image, and make it available to the
+   AWS regions of your choice.
+
+   Image builder allows you to share your AMIs with other AWS accounts that you own
+
+STEPS TO IMPLEMENT EC2 IMAGE BUILDER
+
+- Provide a base OS e.g amazon linux 2
+
+- provide the software to install e.g Node.js, python, latest security updates
+
+- Run test on new ami
+
+- distribute the image to the regions of your choice
+
+TERMINOLOGIES
+
+- IMAGE PIPELINE: Defines the configuration and end-end process of building images
+
+- IMAGE RECIPE: Creates a recipe for each image, which can be shared, version controlled
+  and re-used
+
+ source image: amazon linux 2
+ build components: apache tomcat
+
+
+LAB
+- Create iam role
+  - EC2InstanceProfileForImageBuilder
+  - AmazonSSMManagedInstanceCore
+- create image pipeline
+- execute the pipeline
+- view the image

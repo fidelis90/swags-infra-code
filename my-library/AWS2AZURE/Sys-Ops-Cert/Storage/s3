@@ -1,0 +1,106 @@
+- secure, durable, highly scalable object storage
+
+- object based storage
+
+- cannot be used to host operating systems or database
+
+- Unlimited storage
+
+- Objects can be up to 5TB in size per object
+
+- objects are stored in a bucket
+
+- Example of s3 URLS
+  - https://bucket-name.s3.region.amazonaws.com/key-name
+
+- 200 code is for successful upload
+
+- Key is the name of the object
+
+- Tiered storage
+
+- lifecycle management
+
+- Versioning
+
+- Security
+  - Server-side encryption
+  - ACLs
+  - Bucket Policies
+
+******* STORAGE CLASSES *****
+
+- S3 Standard
+  - High availability
+  - Designed for frequent access
+  - default storage class
+  - websites, gaming apps and big data analytics
+
+- S3 Infrequent Access
+  - less accessed but want it rapidly when accessed
+  - You pay to access the data
+  - Long term storage, backups and disaster recovery files; minimum storage duration is 30 days
+
+- s3 one zone Infrequent access
+  - stored in only one AZ
+  - ame as IA
+
+- Glacier
+  - very cheap
+  - very infrequently accessed
+  - data archiving
+  - minimum 90 days storage duration
+
+- Glacier DEEP aRCHIVE
+  - 180 DAYS minimum storage duration
+
+- s3 Intelligent tiering
+  - 2 tiers: frequent and infrequent access inclusive
+
+**** LIFECYCLE POLICIES *****
+
+- Ensures s3 stores your object with the cost effective storage class
+
+- use lifecycles rules to transition btw storage class
+
+- very useful for buckets that have server access logging enabled on them
+
+- Configure objects to have an expiry date to be deleted after a particular
+  amount of time
+
+- lifecycle rules are based on object creation date
+
+
+****** DATA PROTECTION USING VERSIONING ****
+
+- S3 STORES multiple versions of same object allowing you to revert to previous version
+
+- multiple versions of an object are stored in the same bucket
+
+- it isn't enabled by default
+
+- a DELETE request doesn't delete the object but places a dlete marker on the object
+  so other versions of the object still exists so they can still be accessed
+  via the version ID
+
+- you can delete a particular version of the object by providing the version ID
+
+
+******** MFA DELETE ***********
+
+- We use the code to be able to delete the version of an object
+
+- versioning must be enabled for it to work
+
+- we use mfa to susoend and enable versioning
+
+*** ENVRYPTION ****
+
+- In Transit: SSL/TLS
+
+- At Rest: aka Server-side encryption
+  - SSE-S3
+  - SSE-KMS
+  - SSE-C
+
+- Client Side Encryption: encrypt files locally before uploading to s3

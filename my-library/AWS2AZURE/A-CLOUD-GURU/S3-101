@@ -1,0 +1,112 @@
+********************* S3 ****************************************
+
+- Simple Storage Service
+- safe place to store your files
+- Object based storage
+- files can be from 0-5TB
+- Files are stored in buckets
+- S3 names must be uniquely globally
+- object consist of key, value, version ID
+- Metadata
+- Subresources
+  - Access control lists
+  - torrents
+
+DATA CONSISTENCY IN S3
+
+-   read after write for PUT of new files
+- eventual consistency of write/delete of file
+
+GUARANTEES FROM AMAZON
+
+- Built for 99.99% availability for the s3 platform
+- Amazon guarantee 99.9% availability
+
+
+S3 has the following features
+
+- Tiered storage
+- lifecycle management
+- versioning
+- encryption
+- MFA delete
+- secure your data using acls and bucket policies
+
+STORAGE CLASSES
+
+- S3 Standard: 99% available
+- S3 IA
+- S3 One zone IA
+- S3 Intelligent tiering
+- s3 glacier
+- s3 glacier deep archive
+
+HOW ARE YOU CHARGED IN S3
+
+- Storage
+- Requests
+- storage management pricing
+- data transfer
+- Transfer acceleration
+-
+
+EXAM TIPS
+
+- S3 is object based
+- files can be from 0 - 5 tb
+- there is unlimited storage
+- files are stored in buckets
+- s3 is a universal namespace
+- https://acloudguru.s3.amazonaws.com/
+- https://acloudguru.eu-west-1.amazonaws.com
+- not suitable to install an OS
+- successful uploads will generate a http 200 status code
+- mfa delete on your object
+- key: name of the object
+- value: data which is a sequence of bytes
+- version id: important for versioning
+  - versioning is enabled at the bucket level
+  - once you enable versioning on a bucket, you can never return to initial state
+- metadata: information about the data you are storing
+   - automatically created by aws system
+   - system defined object metadata
+    - user defined object metadata
+- Subresources;
+  - Access control lists
+  - torrents
+- when a file is saved it is replicated in 3 other az
+- Only the root user can delete any object or bucket
+- Storage classes based on their prices from expensive to cheapest
+  - S3 Standard
+  - S3 IA
+  - S3 Intelligent tiering
+  - S3 One zone IA
+  - S3 Glacier
+  - S3 Glacier Deep Archive
+- s3 server access logging is used to track the access request made to a bucket
+  - both authorized and unauthorized attempts will be logged
+- CRR: Cross region replication is used to copy objects across s3 buckets in other regions
+   - CRR is also used for buckets in different aws account (CRR is asynchronous)
+   - CRR helps us to change permission on the replicated bucket.
+- Restricting Bucket Access:
+   - Bucket Policy: Apply across the entire bucket
+   - Object Policy: Individual file
+   - IAM Policies: Applies to users and groups
+- SRR: same region replication
+- S3 Pricing Tiers
+ - Storage
+ - Request
+ - Data Transfer
+- Encryption in
+    - transit: SSL/TLS
+    - Rest Server Side: SSE-S3, Keys SSE-KMS, SSE-C
+    - Rest Client Side Encryption
+- Versioning
+    - backup tool
+    - once enabled cannot be disabled
+    - Integrates with lifecycle rules
+    stores all versions of an object
+    - MFA delete capability
+    - each versions have their individual permissions
+    - you can only suspend versioning on a bucket
+- Read FAQs before taking the exam

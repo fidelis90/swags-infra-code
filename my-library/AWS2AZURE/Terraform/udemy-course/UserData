@@ -1,0 +1,7 @@
+-> This is a helpful tool to get rid of routine operations after server provisioning
+
+-> The feature is built upon he cloud-init package for linux OS.
+
+-> Cloud init serves for performing operations while server's initialization.
+
+CLOUD init
