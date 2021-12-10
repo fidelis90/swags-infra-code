@@ -1,0 +1,59 @@
+- #!/bin/bash this is called the interpreter
+
+- Header
+   The script header is a commented-out section where the developer can include
+   items such as:
+     - Description/Purpose of the script
+     - Revision history
+     - License terms and/or copyright notice
+
+     # ======================================================================
+     # SCRIPT NAME: systeminfo.sh
+
+     # PURPOSE: Demonstrate simple Bash programming concepts
+
+     # REVISION HISTORY:
+
+     # AUTHOR				DATE			DETAILS
+     # --------------------- --------------- --------------------------------
+     # Fidelis Ogunsanmi	 2021-04-01	  Initial version
+
+     # LICENSE: CC Attribution-ShareAlike 4.0 International
+     # ======================================================================
+
+
+BODY OF THE SCRIPT
+
+- This is where sequence of commands is placed, one per line.
+
+- A command can be executed directly by the shell or have its output be saved
+   into a container known as a variable.
+
+      myvar=$(command)
+
+      myvar: this is the output of a command 
+      command: can be any command executed by the shell.
+
+      $myvar to get the content of myvar
+
+
+
+SAMPLE BASH SCRIPT
+
+      echo "Starting to run the script..."
+      # VARIABLE ASSIGNMENT
+      # Show hostname:
+      HOST=$(hostname)
+      # User executing the script:
+      CURRENTUSER=$(whoami)
+      # Current date:
+      CURRENTDATE=$(date +%F)
+      # Host IP address:
+      IPADDRESS=$(hostname -I | cut -d ' ' -f1)
+
+      # SHOW MESSAGES
+      echo "Today is $CURRENTDATE"
+      echo "Hostname: $HOST ($IPADDRESS)"
+      echo "User info for $CURRENTUSER:"
+      grep $CURRENTUSER /etc/passwd
+      echo "Starting to run the script..."

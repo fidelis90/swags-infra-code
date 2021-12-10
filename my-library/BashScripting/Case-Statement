@@ -1,0 +1,13 @@
+          HOW TO USE THE BASH CASE STATEMENTS
+
+- Bash case statements are similar to if-else statements
+- when you have multiple elif statements
+
+SYNTAX OF CASE STATEMENTS
+ case $variable in
+ pattern-1)
+    commands
+ ;;
+ pattern-2)
+    commands
+ ;;
