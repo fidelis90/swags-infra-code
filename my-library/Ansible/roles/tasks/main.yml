@@ -1,0 +1,5 @@
+- name: Copy ssh key to vagrant
+  authorized_key:
+    user: "{{ ssh_user }}"
+    state: present
+    key: "{{ lookup('file', '/home/vagrant/.ssh/id_rsa.pub') }}"

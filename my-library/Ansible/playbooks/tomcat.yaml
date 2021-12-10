@@ -1,0 +1,51 @@
+- name: Install and configure tomcat 
+  hosts: all
+  gather_facts: false
+  become: yes 
+  vars:
+    tomcat_port: 8090
+    tomcat_url: https://mirror.cogentco.com/pub/apache/tomcat/tomcat-8/v8.5.69/bin/apache-tomcat-8.5.69.tar.gz
+
+  tasks:
+    - name: Update repos 
+      yum: 
+        name: "*"
+        state: latest 
+
+    - name: Installing required java 
+      yum:
+        name: java-11-openjdk-devel
+        state: present
+
+    - name: Create folder 
+      file:
+        path: /home/vagrant/tomcat
+        state: directory
+        mode: 0755
+        owner: vagrant
+        group: vagrant  
+
+    - name: Download tomcat 
+      get_url:
+        url: "{{ tomcat_url }}"
+        dest: /home/vagrant/tomcat
+
+    - name: Extracting tomcat 
+      unarchive: 
+        src: /home/vagrant/tomcat/apache-tomcat-8.5.69.tar.gz
+        dest: /home/vagrant/tomcat
+        remote_src: yes 
+
+    - name: Renaming tomcat 
+      command: mv /home/vagrant/tomcat/apache-tomcat-8.5.69 /home/vagrant/tomcat/tomcat
+
+    - name: Replacing default port with required port 
+      template: 
+        src: server.xml.j2
+        dest: /home/vagrant/tomcat/tomcat/conf/server.xml
+                
+    - name: Starting tomcat 
+      shell: nohup /home/vagrant/tomcat/tomcat/bin/startup.sh  
+
+
+
