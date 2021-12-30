@@ -1,0 +1,7 @@
+- Show top processes running in a container 
+  -docker top <contID>
+- docker stop <contID>: STOPS A CONTAINER 
+- docker rm <contID> : REMOVES A CONTAINER 
+- docker stats 
+
+- docker uses cgroups to allocate hardware resources to individual containers 

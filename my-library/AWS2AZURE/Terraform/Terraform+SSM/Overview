@@ -1,7 +1,0 @@
-- The terraform_aws_ssm_agent terraform module can be used to create an SSM document
-  to install lacework agent on ec2 instances.
-
-- This installation method creates a agent token and installs lacework datacollector
-  agent
-
-- 

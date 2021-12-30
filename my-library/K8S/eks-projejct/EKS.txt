@@ -1,0 +1,268 @@
+BHA EKS 
+
+- POC project run to test and implement eks in aws environment 
+
+- existing servers can be migrated to the eks environment 
+
+- account hosting this project is bf-dev 
+
+EKS ARCHITECTURE 
+
+- Controller plane 
+   - consists of 3 master nodes hosted in different availability zones 
+   - it is managed by AWS
+   
+- Worker nodes 
+   - This runs on ec2 instances located in our VPC 
+   - customer controls and manages this components 
+   
+FLOW OF COMMUNICATION 
+
+Kubectl > NLB > EKS CONTROL PLANE > WORKER NODES > LOAD BALANCER > CLIENT 
+
+
+DEPLOYMENT TOOLS 
+
+- Terraform
+   - for creation and management of EKS resources 
+   - terraform eks module is used to create the cluster 
+   - we have a launch template for the worker nodes creation 
+      
+- kubectl 
+   - aws eks --region <region-code> update-kubeconfig --name <cluster_name> --profile [profile]
+
+   -  #Example
+     aws eks --region us-west-2 update-kubeconfig --name bha-eks --profile bf-dev
+	 
+   - The command will configure kubeconfig in your local and you will be able to run kubectl commands 
+   
+   - Use kubectl for all RO operations, all write operations must be performed via Terraform or kubectl apply commands 
+     from jenkins while deploying a project to EKS cluster 
+
+- aws-loadbalancer-controller
+   -  https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+   - This is a controller to help manage ELB for a kubernetes cluster 
+   - When this is deployed in aws, it creates two resources 
+     - Application Load Balancer: ingress kubernetes resources 
+	 - Network Load Balancer: Loadbalancer service 
+	 
+# AWS LOAD BALANCER CONTROLLER 
+
+- In aws, NLB represents the Ingress
+- In AWS, ALB represents the Loadbalancer service 
+- The aws loadbalancer controller needs an IAM policy to give the aws loadbalancer controller 
+  that allows it to make calls to aws apis on your behalf 
+  - curl -o iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
+- Create the iam policy using the policy downloaded 
+  - aws iam create-policy \
+    --policy-name AWSLoadBalancerControllerIAMPolicy \
+    --policy-document file://iam_policy.json
+	
+- Create an IAM role, and annotate the k8s service account that's named aws-load-balancer-controller
+  in the kube-system namespace 
+  eksctl create iamserviceaccount \
+  --cluster=my_cluster \
+  --namespace=kube-system \
+  --name=aws-load-balancer-controller \
+  --attach-policy-arn=arn:aws:iam::111122223333:policy/AWSLoadBalancerControllerIAMPolicy \
+  --override-existing-serviceaccounts \
+  --approve
+   
+- helm
+     - package manager for kubernetes where we can deploy common k8s apps to our cluster easily 
+     - we use helm to deploy the aws loadbalancer controller
+     - we use terraform + helm to deploy the aws loadbalancer controller 
+     - Reasons 
+		- by integrating the aws-LB-controller into terraform, we make sure everything is created at once 
+		
+- daemonset
+     -  ensures all nodes runs a copy of a pod 
+	 -  as nodes ae added, a pod is created 
+	 - USES 
+	    - cluster storage daemon on every node 
+		- running logs collection daemon on every node 
+		- running a node monitoring daemon on every node 
+		- you create a daemonset in a yaml file https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#:~:text=A%20DaemonSet%20ensures%20that%20all,up%20the%20Pods%20it%20created.
+		
+- fluentbit 
+  - we use fluentbit to collect logs created by containers and send those logs to elasticsearch servers 
+    we configured. since fluentbit is configured as a daemonset, a fluentbit pod will be 
+	be executed on every node in the cluster. 
+	
+  - whenever a pod is executed on a worker node, the stdout of the pod is redirected to /var/log/containers directory and stored as a log file 
+    with a file-name starting with pod-name. 
+	- /var/log/containers directory within the worker node itself 
+	- the job of fluentbit is to read that directory with the help of metadata 
+	to identify a container and send to the configured output, In our case Elasticsearch
+
+- Fluentbit Deployment 
+ - we mount the directories in the worker node to the fluentbit container 
+   - /var/log/containers 
+   - /var/lib/docker/containers
+ - fluentbit use the mounted directories to fetch logs and metadata to send to elasticsearch
+ 
+- Fluentbit Configuration 
+ - we have to pass the config to fluentbit system to configure output /fluent-bit/etc
+ - we use configmap to pass the config 
+ - we mount the config map as a volume in the fluentbit container 
+ 
+
+- Application Deployment 
+  - we use kubectl commands and we are planning to handle this using jenkins. 
+  - The deployment job will consist of the sollowing steps 
+    - fetch application repo in github 
+	- run docker commands in directory where Dockerfile resides
+	- Push docker image to ECR 
+	- in post build task run kubectl apply -f .
+
+****** DEPLOYMENT PROCESS OF ANALYTICS-API APPLICATION TO THE EKS CLUSTER ******
+
+- The EKS Cluster has been deployed using terraform 
+
+- All application deployments to the cluster is made using Jenkins 
+
+- Environment Variables for the Analyticsapi app Job: https://ci.binaryfountain.com/job/EKS-POC/job/analytics-api/6/injectedEnvVars/
+Git_url: https://github.com/binaryfountain/analytics-api 
+
+home: /var/lib/jenkins
+
+user: jenkins 
+
+workspace: /var/lib/jenkins/workspace/EKS-POC/analytics-api 
+
+- Syam already created the eks related files for the deployment of the app into the cluster 
+  - deployment.yaml
+     - appname: analytics-api 
+	 - replicas: 2
+	 - containerport: 8080 
+	 - image: image built from the dockerfile in the .docker directory in the git repo 
+	 - deployment pulled the image from ecr, where the image was pushed to 
+
+  - service.yaml 
+     - type: nodeport 
+	 - targetport: 8080
+	
+  - Ingress 
+     - every traffic to analytics-api should be routed   
+- Builds on master jenkins node from the directory /var/lib/jenkins/workspace/EKS-POC/analytics-api 
+
+- clones the repo:  https://github.com/binaryfountain/analytics-api
+
+- builds the docker image from the dockerfile located in the .docker directory and push to ecr 
+
+- cd /var/lib/jenkins/workspace/EKS-POC/analytics-api 
+
+- kubectl apply -f deployment.yaml
+
+
+*********** HOW TO SETUP KUBECTL ON YOUR LOCAL PC **************
+
+- Kubectl is the command line tool used to communicate with the kubernetes cluster through the API-SERVER 
+
+- In our EKS environment, the workflow is to use kubectl for Read-Only Operations in the CLUSTER
+
+- First step to having kubectl work on your local system is to activate the Make-Me Admin on your PC 
+
+- Run the command as admin from the command prompt
+  - choco install kubernetes-cli
+  
+- By installing that, you have kubectl automatically on your system 
+
+- But before kubectl can communicate with our EKS cluster, you must run the command 
+  - aws eks --region us-west-2 update-kubeconfig --name bha-eks --profile bf-dev
+  - make sure you have the bf-dev's profile setup in you local, if not the command won't work 
+
+- if the above was successful, Congrats you can now run some ReadOnly Kubectl commands on the cluster 
+  
+- Sample commands 
+  - kubectl get all : lists all resources in the default namespace 
+  - kubectl get ns: lists all namespaces 
+  - kubectl get deployments: lists all the deployments 
+  - kubectl get pods: lists all the pods 
+  - kubectl get po -n <namespace>: list pods in a namespace 
+  - kubectl --help: to see all kubectl commands and how to use them
+
+Goodluck
+
+Fidelis Ogunsanmi  
+  
+************** SAMPLE KUBECTL COMMANDS *****************
+
+  
+# Get commands with basic output
+kubectl get services                          # List all services in the namespace
+kubectl get pods --all-namespaces             # List all pods in all namespaces
+kubectl get pods -o wide                      # List all pods in the current namespace, with more details
+kubectl get deployment my-dep                 # List a particular deployment
+kubectl get pods                              # List all pods in the namespace
+kubectl get pod my-pod -o yaml                # Get a pod's YAML
+
+# Describe commands with verbose output
+kubectl describe nodes my-node
+kubectl describe pods my-pod
+
+# List Services Sorted by Name
+kubectl get services --sort-by=.metadata.name
+
+# List pods Sorted by Restart Count
+kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
+
+# List PersistentVolumes sorted by capacity
+kubectl get pv --sort-by=.spec.capacity.storage
+
+# Get the version label of all pods with label app=cassandra
+kubectl get pods --selector=app=cassandra -o \
+  jsonpath='{.items[*].metadata.labels.version}'
+
+# Retrieve the value of a key with dots, e.g. 'ca.crt'
+kubectl get configmap myconfig \
+  -o jsonpath='{.data.ca\.crt}'
+
+# Get all worker nodes (use a selector to exclude results that have a label
+# named 'node-role.kubernetes.io/master')
+kubectl get node --selector='!node-role.kubernetes.io/master'
+
+# Get all running pods in the namespace
+kubectl get pods --field-selector=status.phase=Running
+
+# Get ExternalIPs of all nodes
+kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+
+# List Names of Pods that belong to Particular RC
+# "jq" command useful for transformations that are too complex for jsonpath, it can be found at https://stedolan.github.io/jq/
+sel=${$(kubectl get rc my-rc --output=json | jq -j '.spec.selector | to_entries | .[] | "\(.key)=\(.value),"')%?}
+echo $(kubectl get pods --selector=$sel --output=jsonpath={.items..metadata.name})
+
+# Show labels for all pods (or any other Kubernetes object that supports labelling)
+kubectl get pods --show-labels
+
+# Check which nodes are ready
+JSONPATH='{range .items[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status};{end}{end}' \
+ && kubectl get nodes -o jsonpath="$JSONPATH" | grep "Ready=True"
+
+# Output decoded secrets without external tools
+kubectl get secret my-secret -o go-template='{{range $k,$v := .data}}{{"### "}}{{$k}}{{"\n"}}{{$v|base64decode}}{{"\n\n"}}{{end}}'
+
+# List all Secrets currently in use by a pod
+kubectl get pods -o json | jq '.items[].spec.containers[].env[]?.valueFrom.secretKeyRef.name' | grep -v null | sort | uniq
+
+# List all containerIDs of initContainer of all pods
+# Helpful when cleaning up stopped containers, while avoiding removal of initContainers.
+kubectl get pods --all-namespaces -o jsonpath='{range .items[*].status.initContainerStatuses[*]}{.containerID}{"\n"}{end}' | cut -d/ -f3
+
+# List Events sorted by timestamp
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+# Compares the current state of the cluster against the state that the cluster would be in if the manifest was applied.
+kubectl diff -f ./my-manifest.yaml
+
+# Produce a period-delimited tree of all keys returned for nodes
+# Helpful when locating a key within a complex nested JSON structure
+kubectl get nodes -o json | jq -c 'path(..)|[.[]|tostring]|join(".")'
+
+# Produce a period-delimited tree of all keys returned for pods, etc
+kubectl get pods -o json | jq -c 'path(..)|[.[]|tostring]|join(".")'
+
+# Produce ENV for all pods, assuming you have a default container for the pods, default namespace and the `env` command is supported.
+# Helpful when running any supported command across all pods, not just `env`
+for pod in $(kubectl get po --output=jsonpath={.items..metadata.name}); do echo $pod && kubectl exec -it $pod -- env; done

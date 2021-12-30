@@ -1,0 +1,5 @@
+- Show open ports 
+  - lsof -i -P | grep -i "listen"
+
+- Find out PID of process occupying a port 
+  - lsof -i :<portno>
