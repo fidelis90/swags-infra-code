@@ -4,3 +4,7 @@ if 10 in point:
     print("exists")
 else:
     print("Do not exist")
+
+
+point[0] = 9
+print(point)
